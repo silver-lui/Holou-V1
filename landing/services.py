@@ -9,7 +9,7 @@ from django.conf import settings
 from openai import OpenAI
 
 # Set OpenAI API Key
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 
 def extract_json_from_text(text):
