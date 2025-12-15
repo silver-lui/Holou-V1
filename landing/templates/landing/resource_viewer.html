@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Learning Resource - Holou</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Orbitron:wght@700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --background-rgb: 11, 12, 16;
+            --glow-purple-rgb: 123, 92, 255;
+            --glow-cyan-rgb: 56, 189, 248;
+        }
+        body {
+            background-color: #0b0c10;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .iframe-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        purple: { DEFAULT: "#7B5CFF", '500': '#7B5CFF' },
+                        cyan: { DEFAULT: "#38BDF8", '400': "#38BDF8" },
+                        background: "#0b0c10",
+                        "text-soft": "#E4E4E7",
+                        "text-muted": "#A1A1AA",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Orbitron", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background font-sans text-text-soft antialiased">
+    <div class="bg-background/90 backdrop-blur-sm border-b border-white/10 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="size-8">
+                <img alt="Holou Logo" class="h-full w-full object-contain" src="{% static 'Holou-Logo.png' %}"/>
+            </div>
+            <h2 class="text-xl font-bold font-display text-text-soft">Holou</h2>
+            <span class="text-xs text-text-muted px-2">Learning Resource</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="{{ resource_url }}" target="_blank" class="text-xs text-cyan hover:underline flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+                Open in new tab
+            </a>
+            <button onclick="window.close()" class="text-xs text-text-muted hover:text-white flex items-center gap-1 px-3 py-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <span class="material-symbols-outlined text-sm">close</span>
+                Close
+            </button>
+        </div>
+    </div>
+    <div class="iframe-container" id="iframe-container">
+        <iframe id="resource-iframe" src="{{ resource_url }}" title="Learning Resource" allow="fullscreen; autoplay; camera; microphone; geolocation; payment; clipboard-read; clipboard-write" referrerpolicy="no-referrer-when-downgrade" loading="eager"></iframe>
+        <div id="iframe-error" class="hidden flex flex-col items-center justify-center h-full text-center px-8">
+            <div class="mb-6">
+                <span class="material-symbols-outlined text-6xl text-text-muted">link_off</span>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Unable to Load Resource</h3>
+            <p class="text-text-muted mb-6 max-w-md">This resource cannot be displayed in an iframe due to security restrictions. Please use the "Open in new tab" button above to view it.</p>
+            <a href="{{ resource_url }}" target="_blank" class="px-6 py-3 bg-purple text-white rounded-lg hover:bg-purple/90 transition-all inline-flex items-center gap-2">
+                <span class="material-symbols-outlined">open_in_new</span>
+                Open Resource in New Tab
+            </a>
+        </div>
+    </div>
+    <script>
+        // Keep iframe visible at all times - let it try to load no matter what
+        const iframe = document.getElementById('resource-iframe');
+        const errorDiv = document.getElementById('iframe-error');
+        
+        // Ensure iframe is always visible by default - never hide it
+        iframe.style.display = 'block';
+        errorDiv.classList.add('hidden');
+        
+        // Only show error on actual network/connection errors (very rare)
+        // Note: X-Frame-Options blocking doesn't trigger onerror, so iframe will stay visible
+        iframe.onerror = function() {
+            // Only actual network errors trigger this
+            iframe.style.display = 'none';
+            errorDiv.classList.remove('hidden');
+        };
+        
+        // When iframe loads (or appears to load), keep it visible
+        iframe.onload = function() {
+            // Iframe loaded - keep it visible, hide error
+            iframe.style.display = 'block';
+            errorDiv.classList.add('hidden');
+        };
+        
+        // Try to detect actual connection errors (like "refused to connect") after load
+        // But only if we can access the content (same-origin or no CORS)
+        // Most sites will work fine even if we can't access their content due to CORS
+        setTimeout(function() {
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc && iframeDoc.body) {
+                    const bodyText = (iframeDoc.body.innerText || iframeDoc.body.textContent || '').toLowerCase();
+                    
+                    // Only show error for actual connection errors, not X-Frame-Options blocking
+                    const connectionErrors = [
+                        'refused to connect',
+                        'err_connection_refused',
+                        'this site can\'t be reached',
+                        'connection refused',
+                        'dns_probe_finished_nxdomain'
+                    ];
+                    
+                    if (connectionErrors.some(err => bodyText.includes(err))) {
+                        // Actual connection error detected - show error page
+                        iframe.style.display = 'none';
+                        errorDiv.classList.remove('hidden');
+                    } else {
+                        // No connection error - keep iframe visible
+                        iframe.style.display = 'block';
+                        errorDiv.classList.add('hidden');
+                    }
+                }
+            } catch (e) {
+                // CORS - can't access iframe content
+                // This is NORMAL for cross-origin iframes
+                // Iframe loaded, so assume it's working - keep it visible
+                iframe.style.display = 'block';
+                errorDiv.classList.add('hidden');
+            }
+        }, 3000);
+        
+        // Force iframe to stay visible - never hide it unless there's a confirmed error
+        // This ensures maximum compatibility with sites that allow iframe embedding
+    </script>
+</body>
+</html>

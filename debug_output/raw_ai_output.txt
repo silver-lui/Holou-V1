@@ -1,0 +1,3512 @@
+=== RAW AI OUTPUT ===
+{
+  "project_overview": {
+    "title": "Weather App",
+    "description": "In this project, you'll build a weather application using Django that allows users to view weather forecasts for various locations. This project is valuable as it integrates API usage, database interactions, and user interface design skills.",
+    "estimated_duration": "30 days based on skill level and project complexity",
+    "recommended_tech_stack": ["Django", "HTML", "CSS", "JavaScript"],
+    "user_level": "complete beginner",
+    "prerequisites": ["Basic understanding of programming concepts", "Familiarity with HTML and CSS"]
+  },
+  "features": {
+    "core": [
+      "User can search for weather by location.",
+      "Display current and forecasted weather data.",
+      "Responsive design for mobile and desktop."
+    ],
+    "stretch": [
+      "Save favorite locations for quick access.",
+      "Display weather notifications."
+    ]
+  },
+  "overall_learning_materials": {
+    "foundational": [
+      "For complete beginners: Programming basics course - https://www.freecodecamp.org/learn/programming-with-javascript/",
+      "For beginners: HTML & CSS Basics - https://www.freecodecamp.org/learn/responsive-web-design/"
+    ],
+    "project_specific": [
+      "Free Course: Django for Beginners - A comprehensive guide to Django fundamentals - https://www.udemy.com/course/django-for-beginners/",
+      "Tutorial: Build a Weather App with Django - Step-by-step guide - https://realpython.com/python-django-weather-app/"
+    ],
+    "paid_comprehensive": [
+      "Udemy: Complete Python Developer in 2023 - A full-stack course - https://www.udemy.com/course/complete-python-developer-in-2023/",
+      "Course: Django 3 - Full Stack Websites with Python Web Development - https://www.udemy.com/course/django-full-stack-web-developer-bootcamp/"
+    ]
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "focus": "Set up development environment",
+      "type": "learning",
+      "tasks": [
+        {
+          "id": "D1-T1",
+          "title": "Install Python and Django",
+          "task_type": "learning",
+          "description": "Learn how to install Python and Django on your local machine. This is essential for starting your project.",
+          "how_to_guide": "1. Download Python from https://www.python.org/downloads/. 2. Install Python and include it in your system PATH. 3. Install Django via pip by running 'pip install django'.",
+          "subtasks": [
+            {
+              "title": "Download Python",
+              "description": "Get the latest version of Python.",
+              "steps": ["Visit https://www.python.org/downloads/", "Select your operating system", "Download the installer"]
+            },
+            {
+              "title": "Install Django",
+              "description": "Set up Django using pip.",
+              "steps": ["Open your command line interface", "Run the command 'pip install django'", "Verify installation by typing 'django-admin --version'"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Go to https://www.python.org/downloads/ and download Python.",
+            "Step 2: Run the installer and follow the prompts to complete the installation.",
+            "Step 3: Open a terminal and type 'pip install django'.",
+            "Step 4: Confirm Django installation by executing 'django-admin --version'."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Installing software packages",
+            "Basic command line usage"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to add Python to PATH",
+              "solution": "Ensure the checkbox is selected during installation.",
+              "prevention_tip": "Always read installation instructions carefully."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Python Installation Guide - Follow this video for setup - https://www.youtube.com/watch?v=YYXdXT2l-IE",
+              "Article: How to Install Django - Step-by-step guide - https://www.digitalocean.com/community/tutorials/how-to-install-django-on-ubuntu-20-04",
+              "Tutorial: Getting Started with Python - An introduction - https://realpython.com/python-basics/"
+            ],
+            "documentation": [
+              "Official Docs: Django Installation - https://docs.djangoproject.com/en/stable/topics/install/",
+              "Guide: Python Installation - https://realpython.com/installing-python/"
+            ],
+            "helpful_tips": [
+              "Always use a virtual environment for Python projects.",
+              "Check your Python version with 'python --version'."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 20,
+            "coins": 5,
+            "badge": "Installation Guru"
+          }
+        }
+      ],
+      "daily_summary": "Successfully set up the development environment for your Django weather app."
+    },
+    {
+      "day": 2,
+      "focus": "Create a new Django project",
+      "type": "learning",
+      "tasks": [
+        {
+          "id": "D2-T1",
+          "title": "Start new Django project",
+          "task_type": "building",
+          "description": "Create a new Django project called 'WeatherApp' to hold your weather application.",
+          "how_to_guide": "1. Open your terminal. 2. Navigate to the desired directory. 3. Run the command 'django-admin startproject WeatherApp'. 4. Navigate into the project folder.",
+          "subtasks": [
+            {
+              "title": "Open Terminal",
+              "description": "Access your command line interface.",
+              "steps": ["Press Win + R, type 'cmd', hit Enter"]
+            },
+            {
+              "title": "Navigate to desired directory",
+              "description": "Change to the folder where you want to create the project.",
+              "steps": ["Use 'cd your-folder-name' to navigate"]
+            },
+            {
+              "title": "Create the project",
+              "description": "Use Django command to start the project.",
+              "steps": ["Run 'django-admin startproject WeatherApp'"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your terminal and ensure it is in the correct directory.",
+            "Step 2: Type 'django-admin startproject WeatherApp' and hit Enter.",
+            "Step 3: Navigate into the project folder: 'cd WeatherApp'.",
+            "Step 4: Ensure the project structure is created by listing files with 'ls' or 'dir'."
+          ],
+          "time_estimate": "1 hour",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Creating a new Django project",
+            "Navigating command line directories"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Incorrect directory navigation",
+              "solution": "Always check your current directory with 'pwd' or 'dir'.",
+              "prevention_tip": "Keep your project files organized in clearly named folders."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Project Creation - Simple guide to start a new project - https://www.youtube.com/watch?v=F5mRW0jo-U4",
+              "Article: Getting Started with Django - Setting up your first project - https://towardsdatascience.com/getting-started-with-django-15e2d1c9aba8",
+              "Tutorial: Django Official Getting Started - https://docs.djangoproject.com/en/stable/intro/tutorial01/"
+            ],
+            "documentation": [
+              "Official Docs: Starting a project - https://docs.djangoproject.com/en/stable/intro/tutorial01/#creating-a-project",
+              "Guide: Django Project Structure - https://docs.djangoproject.com/en/stable/ref/settings/#project-structure"
+            ],
+            "helpful_tips": [
+              "Organize your projects in a dedicated workspace.",
+              "Follow best practices for Django project naming."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 30,
+            "coins": 10,
+            "badge": "Project Creator"
+          }
+        }
+      ],
+      "daily_summary": "Created the initial Django project structure for the WeatherApp."
+    },
+    {
+      "day": 3,
+      "focus": "Run your Django project",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D3-T1",
+          "title": "Run the development server",
+          "task_type": "building",
+          "description": "Learn how to run the Django development server to see your project in action.",
+          "how_to_guide": "1. Make sure you are in your project directory. 2. Run 'python manage.py runserver'. 3. Open your web browser to 'http://127.0.0.1:8000/'.",
+          "subtasks": [
+            {
+              "title": "Navigate to project directory",
+              "description": "Ensure you are in the WeatherApp folder.",
+              "steps": ["Change directory with 'cd WeatherApp'"]
+            },
+            {
+              "title": "Run the server",
+              "description": "Start the Django development server.",
+              "steps": ["Run command 'python manage.py runserver'"]
+            },
+            {
+              "title": "Open the web browser",
+              "description": "Access the development server in your web browser.",
+              "steps": ["Type 'http://127.0.0.1:8000/' in the address bar"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Ensure you are in the WeatherApp directory by running 'cd WeatherApp'.",
+            "Step 2: Start the server by running 'python manage.py runserver'.",
+            "Step 3: Open your browser and go to 'http://127.0.0.1:8000/'.",
+            "Step 4: Check the console for any errors and fix them if needed."
+          ],
+          "time_estimate": "1 hour",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Running Django server",
+            "Accessing local web applications"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Server not starting due to errors",
+              "solution": "Check for typos in commands and ensure your environment is set up correctly.",
+              "prevention_tip": "Regularly test your server after major changes."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Run Django App - How to get your app running - https://www.youtube.com/watch?v=5fEJJdZtL9Y",
+              "Article: Django Development Server - Explanation and usage - https://www.digitalocean.com/community/tutorials/how-to-use-the-django-development-server",
+              "Tutorial: Official Django Tutorial on Running Server - https://docs.djangoproject.com/en/stable/intro/tutorial01/#running-the-development-server"
+            ],
+            "documentation": [
+              "Official Docs: Starting the Development Server - https://docs.djangoproject.com/en/stable/ref/django-admin/#runserver",
+              "Guide: Understanding Django's runserver command - https://docs.djangoproject.com/en/stable/topics/testing/overview/#running-the-development-server"
+            ],
+            "helpful_tips": [
+              "Use Ctrl+C to stop the server when done testing.",
+              "Always check the console for errors while running the server."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 25,
+            "coins": 8,
+            "badge": "Django Server Runner"
+          }
+        }
+      ],
+      "daily_summary": "Successfully ran the development server for your Django project."
+    },
+    {
+      "day": 4,
+      "focus": "Create a Django app for weather",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D4-T1",
+          "title": "Create the Weather app",
+          "task_type": "building",
+          "description": "Learn how to create an app within your Django project to manage weather data.",
+          "how_to_guide": "1. Ensure you are in the project directory. 2. Run 'python manage.py startapp weather'. 3. Create views and models for managing weather data.",
+          "subtasks": [
+            {
+              "title": "Run command to create app",
+              "description": "Use Django command to set up a new app.",
+              "steps": ["Run 'python manage.py startapp weather'"]
+            },
+            {
+              "title": "Add app to settings",
+              "description": "Include the new app in the project's settings.",
+              "steps": ["Open settings.py and add 'weather' to INSTALLED_APPS"]
+            },
+            {
+              "title": "Create models",
+              "description": "Define models to represent weather data.",
+              "steps": ["In weather/models.py, define a Weather model with fields for location and temperature"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: In your terminal, make sure you're in the WeatherApp directory.",
+            "Step 2: Run 'python manage.py startapp weather' to create the weather app.",
+            "Step 3: Open settings.py and add 'weather' to the INSTALLED_APPS list.",
+            "Step 4: In weather/models.py, create a model class for weather data."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Creating Django apps",
+            "Defining models"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to add app to INSTALLED_APPS",
+              "solution": "Always remember to include new apps in settings.py.",
+              "prevention_tip": "After creating an app, check settings immediately."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Apps - How to create a new app in a Django project - https://www.youtube.com/watch?v=IgC6z7T0dJ4",
+              "Article: Django Application Structure - Learn how Django apps work - https://medium.com/@andrewyay/understanding-django-app-structure-3bc8e1cbad43",
+              "Tutorial: Official Django Start a New App - https://docs.djangoproject.com/en/stable/intro/tutorial01/#creating-a-application"
+            ],
+            "documentation": [
+              "Official Docs: Django Apps Overview - https://docs.djangoproject.com/en/stable/intro/reusable-apps/",
+              "Guide: Models in Django - https://docs.djangoproject.com/en/stable/topics/db/models/"
+            ],
+            "helpful_tips": [
+              "Consistency is key; always structure apps similarly.",
+              "Test models with Django shell to ensure validity."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "App Creator"
+          }
+        }
+      ],
+      "daily_summary": "Created a new 'Weather' app within your Django project."
+    },
+    {
+      "day": 5,
+      "focus": "Define database models",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D5-T1",
+          "title": "Create Weather model",
+          "task_type": "building",
+          "description": "Define a model that represents weather information such as location and temperature.",
+          "how_to_guide": "1. Open weather/models.py. 2. Define a model class 'Weather'. 3. Run 'python manage.py makemigrations' to create migrations.",
+          "subtasks": [
+            {
+              "title": "Open models.py",
+              "description": "Navigate to the models file in your weather app.",
+              "steps": ["Navigate to weather/models.py"]
+            },
+            {
+              "title": "Define Weather model",
+              "description": "Create a class representing weather data.",
+              "steps": ["Write a Python class and define fields in models.py"]
+            },
+            {
+              "title": "Create migrations",
+              "description": "Prepare database migrations based on the Weather model.",
+              "steps": ["Run 'python manage.py makemigrations'"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open weather/models.py in your code editor.",
+            "Step 2: Define the Weather model with fields like location, temperature, etc.",
+            "Step 3: Save your changes.",
+            "Step 4: In the terminal, run 'python manage.py makemigrations' to prepare changes for the database."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Defining database models in Django",
+            "Creating migrations"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Incorrect field types in model",
+              "solution": "Refer to Django documentation for correct field types.",
+              "prevention_tip": "Test model fields in the Django shell."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Models Tutorial - Create models and migrations - https://www.youtube.com/watch?v=6WfeyyZ56i0",
+              "Article: Understanding Models in Django - Comprehensive guide - https://tutorial.djangogirls.org/en/models/",
+              "Tutorial: Django Model Migrations - Step-by-step guidance - https://realpython.com/django-migrations/"
+            ],
+            "documentation": [
+              "Official Docs: Defining Models - https://docs.djangoproject.com/en/stable/topics/db/models/",
+              "Guide: Django Migrations - https://docs.djangoproject.com/en/stable/topics/migrations/"
+            ],
+            "helpful_tips": [
+              "Use descriptive names for your fields.",
+              "Keep your models organized and well-commented."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Database Designer"
+          }
+        }
+      ],
+      "daily_summary": "Successfully defined a Weather model for managing weather data."
+    },
+    {
+      "day": 6,
+      "focus": "Apply database migrations",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D6-T1",
+          "title": "Migrate the database",
+          "task_type": "building",
+          "description": "Run the migration to update the database schema with the Weather model.",
+          "how_to_guide": "1. In the terminal, run 'python manage.py migrate' to apply migrations.",
+          "subtasks": [
+            {
+              "title": "Open terminal",
+              "description": "Access your command line.",
+              "steps": ["Open the terminal window"]
+            },
+            {
+              "title": "Run migrations",
+              "description": "Apply the migration to update your database.",
+              "steps": ["Enter 'python manage.py migrate' and press Enter"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your terminal.",
+            "Step 2: Ensure you are in the WeatherApp directory.",
+            "Step 3: Enter 'python manage.py migrate' in the terminal.",
+            "Step 4: Confirm that the migration was successful by checking for messages in the terminal."
+          ],
+          "time_estimate": "30 minutes",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Applying database migrations",
+            "Updating database schema"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to run 'makemigrations' before migrating",
+              "solution": "Always ensure migrations are created before applying.",
+              "prevention_tip": "Run migrations regularly as you update models."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Migrations Explained - Clear overview - https://www.youtube.com/watch?v=4Eiyh3uPbEE",
+              "Article: How Django Migrations Work - Detailed explanation - https://medium.com/@helen.rose/how-migrations-work-in-django-785b2ad56743",
+              "Tutorial: Django Migrations Documentation - https://docs.djangoproject.com/en/stable/topics/migrations/"
+            ],
+            "documentation": [
+              "Official Docs: Migrations - https://docs.djangoproject.com/en/stable/topics/migrations/#migration-operations",
+              "Guide: Working with Migrations - https://docs.djangoproject.com/en/stable/topics/migrations/#migration"
+            ],
+            "helpful_tips": [
+              "Keep track of schema changes in your project.",
+              "Regularly back up your database."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 25,
+            "coins": 8,
+            "badge": "Migration Master"
+          }
+        }
+      ],
+      "daily_summary": "Successfully migrated the database with the new Weather model."
+    },
+    {
+      "day": 7,
+      "focus": "Create views for weather data",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D7-T1",
+          "title": "Create views for displaying weather info",
+          "task_type": "building",
+          "description": "Develop views in Django to fetch and display weather data from the database.",
+          "how_to_guide": "1. Open weather/views.py. 2. Create a view function to fetch weather data. 3. Return a simple HTML response with weather info.",
+          "subtasks": [
+            {
+              "title": "Open views.py",
+              "description": "Navigate to the views file in the weather app.",
+              "steps": ["Access weather/views.py in your code editor"]
+            },
+            {
+              "title": "Define view function",
+              "description": "Write a function to query and display weather data.",
+              "steps": ["Define a function using HttpResponse for returning data"]
+            },
+            {
+              "title": "Return response",
+              "description": "Construct an HTML response for weather data.",
+              "steps": ["Use HttpResponse to return weather information as HTML"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open weather/views.py in your editor.",
+            "Step 2: Import necessary modules like HttpResponse.",
+            "Step 3: Create a view function named 'weather_info'.",
+            "Step 4: Return an HttpResponse with a simple HTML layout showing weather data."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Creating views in Django",
+            "Displaying data in responses"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not importing HttpResponse",
+              "solution": "Always ensure necessary imports at the start of your file.",
+              "prevention_tip": "Use comments in your code to remind yourself of dependencies."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Views Tutorial - Understand views - https://www.youtube.com/watch?v=YlcZ5gMCHgI",
+              "Article: Django Views Explained - Comprehensive guide to views - https://realpython.com/python-django-views/",
+              "Tutorial: Django Official Tutorial on Views - https://docs.djangoproject.com/en/stable/intro/tutorial03/"
+            ],
+            "documentation": [
+              "Official Docs: Views in Django - https://docs.djangoproject.com/en/stable/topics/http/views/",
+              "Guide: Creating Views - https://docs.djangoproject.com/en/stable/topics/http/shortcuts/#render"
+            ],
+            "helpful_tips": [
+              "Test your views using Django shell and the runserver command.",
+              "Always handle exceptions gracefully in your views."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "View Creator"
+          }
+        }
+      ],
+      "daily_summary": "Created views to display weather data in your Django app."
+    },
+    {
+      "day": 8,
+      "focus": "Connect views to URLs",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D8-T1",
+          "title": "Map URLs to views",
+          "task_type": "building",
+          "description": "Connect the views you created to specific URLs within your Django app.",
+          "how_to_guide": "1. Open weather/urls.py. 2. Define URL patterns and map them to views. 3. Include them in the project's main urls.py.",
+          "subtasks": [
+            {
+              "title": "Open urls.py",
+              "description": "Navigate to the urls.py file in your weather app.",
+              "steps": ["Access weather/urls.py in your editor"]
+            },
+            {
+              "title": "Define URL patterns",
+              "description": "Create URL patterns to map to the views you created.",
+              "steps": ["Use path() to create URL patterns"]
+            },
+            {
+              "title": "Include URLs in main urls.py",
+              "description": "Add include() for mapping the app URLs to the main project.",
+              "steps": ["Open WeatherApp/urls.py and include weather.urls"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open weather/urls.py.",
+            "Step 2: Import path and your view function.",
+            "Step 3: Use path() to define URL patterns.",
+            "Step 4: In the project's main urls.py, include the weather URLs."
+          ],
+          "time_estimate": "1.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Mapping URLs to views",
+            "URL configuration in Django"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to include app URLs in main urls.py",
+              "solution": "Check if you added include(weather.urls).",
+              "prevention_tip": "Use comments to remind yourself of configuration steps."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django URL Mapping - How to connect views to URLs - https://www.youtube.com/watch?v=WYM7G26Zt6I",
+              "Article: Django URL Dispatcher - Comprehensive guide - https://realpython.com/python-django-url-dispatcher/",
+              "Tutorial: Django Official Tutorial on URLs - https://docs.djangoproject.com/en/stable/topics/http/urls/"
+            ],
+            "documentation": [
+              "Official Docs: URL Dispatcher - https://docs.djangoproject.com/en/stable/topics/http/urls/",
+              "Guide: Including URLconfs - https://docs.djangoproject.com/en/stable/topics/http/urls/#including-urlconfs"
+            ],
+            "helpful_tips": [
+              "Keep your URLs organized and descriptive.",
+              "Test your URLs regularly with the development server."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 35,
+            "coins": 12,
+            "badge": "URL Mapper"
+          }
+        }
+      ],
+      "daily_summary": "Mapped URLs to your weather views in the Django application."
+    },
+    {
+      "day": 9,
+      "focus": "Fetch weather data from an API",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D9-T1",
+          "title": "Integrate weather API",
+          "task_type": "building",
+          "description": "Fetch weather data using a third-party API and display it on your weather app.",
+          "how_to_guide": "1. Choose a weather API (e.g., OpenWeatherMap). 2. Sign up for an API key. 3. Use requests library to integrate API.",
+          "subtasks": [
+            {
+              "title": "Choose an API",
+              "description": "Select a weather API service.",
+              "steps": ["Visit OpenWeatherMap and sign up for an API key"]
+            },
+            {
+              "title": "Install requests library",
+              "description": "Install the requests library for making API calls.",
+              "steps": ["Run 'pip install requests' in your terminal"]
+            },
+            {
+              "title": "Write API integration code",
+              "description": "Fetch data from the weather API in your view.",
+              "steps": ["Use requests.get() to call the API and handle response"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Go to OpenWeatherMap and register for a free API key.",
+            "Step 2: In your terminal, run 'pip install requests' to install the requests library.",
+            "Step 3: Import requests in your views.py.",
+            "Step 4: Write a function to fetch weather data using requests.get() and process the response."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Integrating APIs in Django",
+            "Working with JSON data"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not handling API errors",
+              "solution": "Always check for response status and handle exceptions.",
+              "prevention_tip": "Implement try/except blocks when making API requests."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: How to Use REST APIs in Django - Step-by-step guide - https://www.youtube.com/watch?v=0sUT8-_w6wA",
+              "Article: Django API Integration - Practical guide - https://www.digitalocean.com/community/tutorials/how-to-use-an-api-with-django",
+              "Tutorial: OpenWeatherMap API Documentation - https://openweathermap.org/api"
+            ],
+            "documentation": [
+              "Official Docs: Working with APIs in Django - https://docs.djangoproject.com/en/stable/topics/http/shortcuts/#http-response",
+              "Guide: Requests Library Documentation - https://docs.python-requests.org/en/latest/"
+            ],
+            "helpful_tips": [
+              "Make a test API call in the terminal to check if it works before implementing in code.",
+              "Store your API key securely and don’t hardcode it."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 45,
+            "coins": 15,
+            "badge": "API Integrator"
+          }
+        }
+      ],
+      "daily_summary": "Fetched weather data from a public API and integrated it into your app."
+    },
+    {
+      "day": 10,
+      "focus": "Display fetched weather data",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D10-T1",
+          "title": "Render weather data in HTML",
+          "task_type": "building",
+          "description": "Display the weather data retrieved from the API in your Django templates.",
+          "how_to_guide": "1. Create a template in the weather app. 2. In your view, pass the weather data to the template. 3. Use Django template syntax to render data.",
+          "subtasks": [
+            {
+              "title": "Create weather template",
+              "description": "Create an HTML file to display weather data.",
+              "steps": ["Create a template directory and an HTML file in it"]
+            },
+            {
+              "title": "Pass data to template",
+              "description": "Update your view to send weather data to the template.",
+              "steps": ["Use render() to pass context data"]
+            },
+            {
+              "title": "Render data in template",
+              "description": "Use Django template language to display data.",
+              "steps": ["Use {{ }} syntax to display data variables"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Create a folder named 'templates' in the weather app directory.",
+            "Step 2: Within 'templates', create 'weather.html'.",
+            "Step 3: Update the view function to include a render step passing the fetched data.",
+            "Step 4: In 'weather.html', use Django's template syntax to display the weather information."
+          ],
+          "time_estimate": "2.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Using Django templates",
+            "Rendering data in HTML"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to set up the template directory",
+              "solution": "Always verify the directory structure is correct.",
+              "prevention_tip": "Follow documentation closely for file structures."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Template Rendering - How to use templates effectively - https://www.youtube.com/watch?v=YIwFEmfHT8s",
+              "Article: Django Template Language - Thorough overview - https://realpython.com/django-template-language/",
+              "Tutorial: Django Templates Official Guide - https://docs.djangoproject.com/en/stable/topics/templates/"
+            ],
+            "documentation": [
+              "Official Docs: Using Templates - https://docs.djangoproject.com/en/stable/topics/templates/",
+              "Guide: Django Template Contexts - https://docs.djangoproject.com/en/stable/topics/templates/#template-context"
+            ],
+            "helpful_tips": [
+              "Use comments within templates for clarity.",
+              "Regularly check your templates against the Django documentation."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "HTML Renderer"
+          }
+        }
+      ],
+      "daily_summary": "Successfully displayed weather data in your Django templates."
+    },
+    {
+      "day": 11,
+      "focus": "Create forms for user input",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D11-T1",
+          "title": "Implement user search form",
+          "task_type": "building",
+          "description": "Create a form that allows users to input a location and fetch weather data.",
+          "how_to_guide": "1. Create a Django form class in forms.py. 2. Update your templates to include the form. 3. Handle form submissions in your views.",
+          "subtasks": [
+            {
+              "title": "Create forms.py",
+              "description": "Add a new form class within the weather app.",
+              "steps": ["Create a forms.py file in the weather app directory"]
+            },
+            {
+              "title": "Define the location form",
+              "description": "Use Django forms to create a location input field.",
+              "steps": ["Define a CharField for user input"]
+            },
+            {
+              "title": "Update templates with form",
+              "description": "Render the form in the HTML template.",
+              "steps": ["Use {{ form.as_p }} to display the form in weather.html"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Create a forms.py file in your weather app directory.",
+            "Step 2: In forms.py, create a class 'LocationForm' that inherits from forms.Form.",
+            "Step 3: Define a CharField for the location input.",
+            "Step 4: Update weather.html to include your form using {{ form.as_p }}."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Creating forms in Django",
+            "Handling user input"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to import forms module",
+              "solution": "Always check for necessary imports at the top of forms.py.",
+              "prevention_tip": "Keep a checklist of imports for common files."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Forms Tutorial - Understanding forms in Django - https://www.youtube.com/watch?v=8s0412T34k4",
+              "Article: Working with Django Forms - Practical tips and examples - https://realpython.com/django-forms/",
+              "Tutorial: Official Django Forms Guide - https://docs.djangoproject.com/en/stable/topics/forms/"
+            ],
+            "documentation": [
+              "Official Docs: Django Forms - https://docs.djangoproject.com/en/stable/topics/forms/",
+              "Guide: Form Fields in Django - https://docs.djangoproject.com/en/stable/topics/forms/#formfields"
+            ],
+            "helpful_tips": [
+              "Always test your forms to ensure they work as expected.",
+              "Use the Django shell to quickly test form behaviors."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Form Builder"
+          }
+        }
+      ],
+      "daily_summary": "Implemented a user input form for location search in your weather app."
+    },
+    {
+      "day": 12,
+      "focus": "Handle form submissions",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D12-T1",
+          "title": "Process user input from form",
+          "task_type": "building",
+          "description": "Update your view to process the form submission and fetch the corresponding weather data.",
+          "how_to_guide": "1. Check if the form is valid. 2. Fetch data based on user input. 3. Redirect or render the weather data.",
+          "subtasks": [
+            {
+              "title": "Check form validity",
+              "description": "Verify if the submitted form passes validation.",
+              "steps": ["Use 'if form.is_valid():' in your view"]
+            },
+            {
+              "title": "Fetch data with user input",
+              "description": "Use the input from the form to make the API call.",
+              "steps": ["Access cleaned data with 'form.cleaned_data['location']'"]
+            },
+            {
+              "title": "Render response",
+              "description": "Display the weather data based on the provided location.",
+              "steps": ["Return the response using render() with updated context"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your view function and check if the submitted form is valid.",
+            "Step 2: Use 'form.cleaned_data['location']' to access user input.",
+            "Step 3: Implement the API call using the user input.",
+            "Step 4: Render the template with the new weather data."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Processing forms in Django",
+            "Fetching data based on user input"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not checking for form validity",
+              "solution": "Always validate forms before using the data.",
+              "prevention_tip": "Regularly test your form processing logic."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Form Processing - Handle submissions effectively - https://www.youtube.com/watch?v=Ud3Rx9wvY2E",
+              "Article: Processing Django Form Submissions - Insightful guide - https://realpython.com/django-forms/#processing-submissions",
+              "Tutorial: Handling Form Submission in Django - Step-by-step guide - https://docs.djangoproject.com/en/stable/topics/forms/#handling-submitted-data"
+            ],
+            "documentation": [
+              "Official Docs: Handling Form Data - https://docs.djangoproject.com/en/stable/topics/forms/#handling-submitted-data",
+              "Guide: Validating Forms - https://docs.djangoproject.com/en/stable/topics/forms/#validating-forms"
+            ],
+            "helpful_tips": [
+              "Always provide user feedback for successful form submissions.",
+              "Make use of Django messages framework for displaying notifications."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Input Processor"
+          }
+        }
+      ],
+      "daily_summary": "Successfully implemented form submission handling in your Django app."
+    },
+    {
+      "day": 13,
+      "focus": "Add styling to your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D13-T1",
+          "title": "Style the weather application",
+          "task_type": "building",
+          "description": "Enhance the appearance of your weather app using CSS.",
+          "how_to_guide": "1. Create a static folder for CSS. 2. Link your CSS file in the templates. 3. Apply styles to the HTML elements.",
+          "subtasks": [
+            {
+              "title": "Create static folder",
+              "description": "Set up a static directory for CSS files.",
+              "steps": ["Create a folder named 'static' in the weather app directory"]
+            },
+            {
+              "title": "Add CSS file",
+              "description": "Create a .css file for styling the app.",
+              "steps": ["In static, create 'styles.css' file"]
+            },
+            {
+              "title": "Link CSS in templates",
+              "description": "Include your CSS file in the HTML template.",
+              "steps": ["Use <link rel='stylesheet' href='{% static 'styles.css' %}'>" in weather.html"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Create a 'static' directory in the weather app directory.",
+            "Step 2: Inside 'static', create a file named 'styles.css'.",
+            "Step 3: Open your weather.html and link to your CSS by adding the <link> tag.",
+            "Step 4: Start adding styles to your CSS file."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Applying CSS styles",
+            "Linking static files in Django"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not linking the CSS file correctly",
+              "solution": "Ensure the static files are included and paths are correct.",
+              "prevention_tip": "Always test your styles in the browser after changes."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: CSS Styling for Beginners - Learn CSS basics - https://www.youtube.com/watch?v=yfoY53QXEnI",
+              "Article: Django Static Files Explained - Comprehensive overview - https://realpython.com/using-static-files-in-django/",
+              "Tutorial: Styling Django Templates - Step-by-step guide - https://www.digitalocean.com/community/tutorials/how-to-use-static-files-in-django"
+            ],
+            "documentation": [
+              "Official Docs: Django Static Files - https://docs.djangoproject.com/en/stable/howto/static-files/",
+              "Guide: Django CSS and Static Files - https://docs.djangoproject.com/en/stable/topics/staticfiles/"
+            ],
+            "helpful_tips": [
+              "Organize your styles in a structured manner.",
+              "Keep your CSS separate from HTML for cleaner code."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Styling Artist"
+          }
+        }
+      ],
+      "daily_summary": "Enhanced the styling of your weather app using CSS."
+    },
+    {
+      "day": 14,
+      "focus": "Test your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D14-T1",
+          "title": "Perform functional tests",
+          "task_type": "practice",
+          "description": "Test the weather app to ensure all functionalities work as intended.",
+          "how_to_guide": "1. Open the app and interact with all features. 2. Check for any errors in the console. 3. Ensure all data displays correctly.",
+          "subtasks": [
+            {
+              "title": "Test all features",
+              "description": "Interact with every feature in the app.",
+              "steps": ["Check the location input form", "Test the weather display"]
+            },
+            {
+              "title": "Check for errors",
+              "description": "Monitor console for any bugs or issues.",
+              "steps": ["Open browser console and look for error messages"]
+            },
+            {
+              "title": "Validate data display",
+              "description": "Verify if weather data is displaying correctly.",
+              "steps": ["Cross-check API data with displayed information"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your weather app in a browser.",
+            "Step 2: Use the location input form to search for different places.",
+            "Step 3: Watch for any errors in the console.",
+            "Step 4: Verify that the displayed weather matches the data from the API."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Functional testing",
+            "Debugging web applications"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Neglecting to test all features",
+              "solution": "Always test every functionality at least once.",
+              "prevention_tip": "Maintain a checklist of features to be tested."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Testing Django Applications - Effective strategies - https://www.youtube.com/watch?v=umg2XYaWcSQ",
+              "Article: Testing Strategies in Django - Tips for thorough testing - https://realpython.com/testing-in-django/",
+              "Tutorial: Django Test Framework - Official guide - https://docs.djangoproject.com/en/stable/topics/testing/"
+            ],
+            "documentation": [
+              "Official Docs: Testing in Django - https://docs.djangoproject.com/en/stable/topics/testing/overview/",
+              "Guide: Functional Tests - https://docs.djangoproject.com/en/stable/topics/testing/tools/#functional-tests"
+            ],
+            "helpful_tips": [
+              "Keep a bug tracking system to manage issues.",
+              "Perform both manual and automated testing."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Testing Pro"
+          }
+        }
+      ],
+      "daily_summary": "Conducted functional tests on your weather app."
+    },
+    {
+      "day": 15,
+      "focus": "Deploy your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D15-T1",
+          "title": "Deploy the weather application",
+          "task_type": "building",
+          "description": "Learn how to deploy your weather app so others can access it online.",
+          "how_to_guide": "1. Choose a hosting platform (e.g., Heroku, PythonAnywhere). 2. Prepare your app for deployment. 3. Follow platform-specific deployment instructions.",
+          "subtasks": [
+            {
+              "title": "Choose a hosting platform",
+              "description": "Select a hosting platform to deploy your app.",
+              "steps": ["Research options like Heroku or PythonAnywhere"]
+            },
+            {
+              "title": "Prepare Django for deployment",
+              "description": "Make necessary configurations for production.",
+              "steps": ["Set ALLOWED_HOSTS in settings.py", "Collect static files using 'python manage.py collectstatic'"]
+            },
+            {
+              "title": "Follow deployment instructions",
+              "description": "Implement the deployment process as per chosen platform.",
+              "steps": ["Follow the specific platform guide for deployment steps"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Research platforms like Heroku or PythonAnywhere for deployment options.",
+            "Step 2: Open settings.py and set the ALLOWED_HOSTS variable to include your domain.",
+            "Step 3: Run 'python manage.py collectstatic' to gather static files.",
+            "Step 4: Follow the specific platform guide for deploying your Django app."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Deploying Django applications",
+            "Configuring apps for production"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to set ALLOWED_HOSTS",
+              "solution": "Always check your settings before deployment.",
+              "prevention_tip": "Keep a checklist of deployment steps."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Deploying Django Applications - Step-by-step guide - https://www.youtube.com/watch?v=ar6UBtuQf1Y",
+              "Article: Deploy Django on Heroku - Detailed instructions - https://devcenter.heroku.com/articles/deploying-python",
+              "Tutorial: Official Django Deployment Checklist - https://docs.djangoproject.com/en/stable/howto/deployment/checklist/"
+            ],
+            "documentation": [
+              "Official Docs: Deploying Django - https://docs.djangoproject.com/en/stable/howto/deployment/"
+            ],
+            "helpful_tips": [
+              "Consider using Docker for easier deployments.",
+              "Always monitor your deployed app for errors and performance."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Deployment Expert"
+          }
+        }
+      ],
+      "daily_summary": "Successfully deployed your weather app for online access."
+    },
+    {
+      "day": 16,
+      "focus": "Receive user feedback",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D16-T1",
+          "title": "Collect feedback on your app",
+          "task_type": "practice",
+          "description": "Gather user feedback on the features and usability of your weather app.",
+          "how_to_guide": "1. Share your app with friends or peers. 2. Ask for specific feedback on features. 3. Use feedback to improve your app.",
+          "subtasks": [
+            {
+              "title": "Share your app",
+              "description": "Provide the app link to users.",
+              "steps": ["Send the link via email or social media"]
+            },
+            {
+              "title": "Request specific feedback",
+              "description": "Ask users for their thoughts on usability.",
+              "steps": ["Prepare a short survey or questions"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Deploy your app and share the link with users.",
+            "Step 2: Develop a short survey or list of questions focusing on usability.",
+            "Step 3: Analyze the feedback to identify areas for improvement.",
+            "Step 4: Plan adjustments based on the feedback received."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Collecting user feedback",
+            "Analyzing feedback for improvements"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not asking for detailed feedback",
+              "solution": "Always prepare targeted questions to gather useful insights.",
+              "prevention_tip": "Send follow-up questions based on initial feedback."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Collecting User Feedback - Importance and methods - https://www.youtube.com/watch?v=GWSmVECorr0",
+              "Article: Best Practices for User Feedback - Strategies for effective feedback - https://www.nngroup.com/articles/user-feedback/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Focus on constructive criticism to make valuable improvements.",
+              "Maintain open communication with feedback providers."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 25,
+            "coins": 10,
+            "badge": "Feedback Collector"
+          }
+        }
+      ],
+      "daily_summary": "Collected user feedback to enhance your weather app."
+    },
+    {
+      "day": 17,
+      "focus": "Iterate based on feedback",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D17-T1",
+          "title": "Implement feedback improvements",
+          "task_type": "building",
+          "description": "Make adjustments to your app based on user feedback received.",
+          "how_to_guide": "1. Review collected feedback. 2. Identify common issues or suggestions. 3. Implement changes and test.",
+          "subtasks": [
+            {
+              "title": "Review feedback",
+              "description": "Go through the collected feedback.",
+              "steps": ["Identify areas that need improvement"]
+            },
+            {
+              "title": "List possible changes",
+              "description": "Create a list of adjustments to be made.",
+              "steps": ["Prioritize changes based on user input"]
+            },
+            {
+              "title": "Implement adjustments",
+              "description": "Make coding changes to the app.",
+              "steps": ["Edit code and redeploy app"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your feedback and categorize it.",
+            "Step 2: List the most mentioned issues and suggestions.",
+            "Step 3: Make changes to your codebase to address these points.",
+            "Step 4: Test the app after changes to ensure all functionalities still work."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Iterating on user feedback",
+            "Improving application functionality"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Ignoring valuable feedback",
+              "solution": "Always pay attention to user suggestions, even minor ones.",
+              "prevention_tip": "Keep a continual loop of feedback and improvement."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Iterative Design - Improving based on user feedback - https://www.youtube.com/watch?v=HWS6GUc3Oyg",
+              "Article: User Feedback Iteration - Process of iteration explained - https://www.smashingmagazine.com/2019/09/feedback-iteration-process/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Communicate improvements back to users, so they feel involved.",
+              "Continue to gather feedback even after initial changes."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 30,
+            "coins": 12,
+            "badge": "Improvement Implementer"
+          }
+        }
+      ],
+      "daily_summary": "Implemented improvements in your weather app based on user feedback."
+    },
+    {
+      "day": 18,
+      "focus": "Optimize your application",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D18-T1",
+          "title": "Optimize for performance",
+          "task_type": "building",
+          "description": "Enhance the performance and speed of your weather app.",
+          "how_to_guide": "1. Analyze your application for performance issues. 2. Use tools to test speed. 3. Adjust coding practices for efficiency.",
+          "subtasks": [
+            {
+              "title": "Use profiling tools",
+              "description": "Identify bottlenecks in your application.",
+              "steps": ["Install and run a profiling tool"]
+            },
+            {
+              "title": "Check database queries",
+              "description": "Analyze SQL queries for performance.",
+              "steps": ["Optimize queries for faster response"]
+            },
+            {
+              "title": "Implement caching",
+              "description": "Use caching solutions to speed up responses.",
+              "steps": ["Explore Django caching frameworks"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Identify performance bottlenecks using profiling tools.",
+            "Step 2: Review and optimize database queries for efficiency.",
+            "Step 3: Implement caching strategies for frequently requested data.",
+            "Step 4: Test application speed after optimizations."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Identifying performance issues",
+            "Optimizing applications for speed"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Neglecting to test after optimizations",
+              "solution": "Always test your application after making changes.",
+              "prevention_tip": "Document changes made for future reference."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Optimize Django Applications - Strategies and tips - https://www.youtube.com/watch?v=Fd8owvGKGKY",
+              "Article: Performance Optimization in Django - Comprehensive overview - https://realpython.com/django-performance-optimization/",
+              "Tutorial: Caching in Django - Step-by-step guide - https://docs.djangoproject.com/en/stable/topics/cache/"
+            ],
+            "documentation": [
+              "Official Docs: Caching in Django - https://docs.djangoproject.com/en/stable/topics/cache/",
+              "Guide: Django Performance Optimization - https://docs.djangoproject.com/en/stable/topics/performance/"
+            ],
+            "helpful_tips": [
+              "Keep monitoring your app's performance regularly.",
+              "Consider using a performance tracking tool for insights."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Optimization Expert"
+          }
+        }
+      ],
+      "daily_summary": "Optimized your weather app for better performance."
+    },
+    {
+      "day": 19,
+      "focus": "Create user accounts",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D19-T1",
+          "title": "Implement user authentication",
+          "task_type": "building",
+          "description": "Allow users to create accounts and log in to your weather app.",
+          "how_to_guide": "1. Use Django's built-in authentication system. 2. Create registration and login views. 3. Add templates for login and registration.",
+          "subtasks": [
+            {
+              "title": "Enable authentication in settings",
+              "description": "Ensure authentication settings are configured.",
+              "steps": ["Add 'django.contrib.auth' to INSTALLED_APPS"]
+            },
+            {
+              "title": "Create registration view",
+              "description": "Develop a view for user registration.",
+              "steps": ["Define a view to handle registration logic"]
+            },
+            {
+              "title": "Add login/logout views",
+              "description": "Implement Django's login and logout functionality.",
+              "steps": ["Use built-in views for authentication"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: In settings.py, ensure 'django.contrib.auth' is in INSTALLED_APPS.",
+            "Step 2: Create registration and login/logout views for user management.",
+            "Step 3: Add templates for user registration and login processes.",
+            "Step 4: Test authentication functionality to ensure proper user flow."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Implementing user authentication",
+            "Managing user sessions"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not configuring authentication settings",
+              "solution": "Double-check settings for authentication features.",
+              "prevention_tip": "Follow Django authentication documentation closely."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django User Authentication - How to set it up - https://www.youtube.com/watch?v=moSIk0S5QH4",
+              "Article: Django User Authentication Explained - Tips and strategies - https://realpython.com/django-authentication-authorization/",
+              "Tutorial: Django Authentication Guide - Official guide - https://docs.djangoproject.com/en/stable/topics/auth/"
+            ],
+            "documentation": [
+              "Official Docs: User Authentication in Django - https://docs.djangoproject.com/en/stable/topics/auth/default/",
+              "Guide: Authentications Views - https://docs.djangoproject.com/en/stable/topics/auth/default/#module-django.contrib.auth.views"
+            ],
+            "helpful_tips": [
+              "Secure user passwords using hash functions.",
+              "Always enforce password complexity rules."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Authentication Specialist"
+          }
+        }
+      ],
+      "daily_summary": "Implemented user authentication for account management in your weather app."
+    },
+    {
+      "day": 20,
+      "focus": "Test authentication features",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D20-T1",
+          "title": "Conduct tests on authentication",
+          "task_type": "practice",
+          "description": "Test the user login and registration functionalities to ensure they work flawlessly.",
+          "how_to_guide": "1. Create new user accounts using registration. 2. Log in with existing accounts. 3. Verify logout functionality.",
+          "subtasks": [
+            {
+              "title": "Test user registration",
+              "description": "Create a new user account to evaluate registration.",
+              "steps": ["Complete the registration form and submit"]
+            },
+            {
+              "title": "Verify login process",
+              "description": "Log in as an existing user to ensure the process works.",
+              "steps": ["Enter valid credentials and access user dashboard"]
+            },
+            {
+              "title": "Check logout functionality",
+              "description": "Log out and verify session clearing.",
+              "steps": ["Click logout and confirm redirection to the home page"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open the registration page and submit a new user account.",
+            "Step 2: Log in using the newly created account.",
+            "Step 3: Navigate around the app to ensure functionality is intact.",
+            "Step 4: Use the logout button to end the session."
+          ],
+          "time_estimate": "2.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Testing user authentication features",
+            "Ensuring security and integrity of user sessions"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not using unique usernames/emails",
+              "solution": "Ensure user registration checks for duplicate entries.",
+              "prevention_tip": "Build user feedback for successful registration."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Test User Authentication - Strategies to test effectively - https://www.youtube.com/watch?v=CYI34cV7Q-A",
+              "Article: Best Practices Testing Authentication - Tips and insights - https://www.smashingmagazine.com/2020/03/testing-authentication/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Implement throttling to prevent brute force attacks.",
+              "Regularly review authentication security measures."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 15,
+            "badge": "Testing Pro"
+          }
+        }
+      ],
+      "daily_summary": "Conducted successful tests on the authentication features of your app."
+    },
+    {
+      "day": 21,
+      "focus": "Introduce user profiles",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D21-T1",
+          "title": "Create user profile functionality",
+          "task_type": "building",
+          "description": "Implement user profiles that allow users to view and edit their personal information.",
+          "how_to_guide": "1. Create a Profile model linked to user accounts. 2. Implement views and forms for profile management. 3. Update templates to display user profile.",
+          "subtasks": [
+            {
+              "title": "Create Profile model",
+              "description": "Define a model that links user data to profiles.",
+              "steps": ["In models.py, create a new Profile model"]
+            },
+            {
+              "title": "Update views for profile handling",
+              "description": "Develop views to manage profile data.",
+              "steps": ["Create view functions to display and update profiles"]
+            },
+            {
+              "title": "Create profile templates",
+              "description": "Render user profile information using templates.",
+              "steps": ["Design templates for user profiles"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open models.py and add a Profile model linked to Django's built-in User model.",
+            "Step 2: Define fields in the Profile model for user data.",
+            "Step 3: Implement views to show and edit profile information.",
+            "Step 4: Design templates to render profile data on the frontend."
+          ],
+          "time_estimate": "3.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Managing user profiles in Django",
+            "Implementing model relationships"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Incomplete Profile model design",
+              "solution": "Ensure all necessary user fields are included.",
+              "prevention_tip": "Review model design concepts before implementation."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: User Profiles in Django - Build user profiles step-by-step - https://www.youtube.com/watch?v=0G9KmIiGkBs",
+              "Article: Creating User Profiles in Django - Detailed guide - https://simpleisbetterthancomplex.com/tutorial/2016/08/23/how-to-create-a-user-profile-model.html",
+              "Tutorial: Django User Profile Example - Official and third-party guides - https://realpython.com/django-user-profile/"
+            ],
+            "documentation": [
+              "Official Docs: User Profiles and Relationships - https://docs.djangoproject.com/en/stable/topics/db/models/#relationships",
+              "Guide: Django Models Overview - https://docs.djangoproject.com/en/stable/topics/db/models/"
+            ],
+            "helpful_tips": [
+              "Test your profile management thoroughly to ensure user data integrity.",
+              "Keep user experience in mind when designing profile pages."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Profile Creator"
+          }
+        }
+      ],
+      "daily_summary": "Implemented user profile functionality in your weather app."
+    },
+    {
+      "day": 22,
+      "focus": "Test profile features",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D22-T1",
+          "title": "Conduct tests on user profiles",
+          "task_type": "practice",
+          "description": "Test the user profile functionality to ensure data is displaying and updating correctly.",
+          "how_to_guide": "1. Log in as a user. 2. Access the profile page. 3. Edit and save information.",
+          "subtasks": [
+            {
+              "title": "View profile data",
+              "description": "Check that the profile displays the correct information.",
+              "steps": ["Access the profile page as a logged-in user"]
+            },
+            {
+              "title": "Edit profile information",
+              "description": "Modify profile data and save changes.",
+              "steps": ["Make edits and submit the form"]
+            },
+            {
+              "title": "Verify changes",
+              "description": "Ensure that edited information updates successfully.",
+              "steps": ["Review the profile to confirm updates"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Log in to your app as a user.",
+            "Step 2: Navigate to the profile page and review displayed data.",
+            "Step 3: Edit information and save changes.",
+            "Step 4: Refresh the profile page to confirm that updates are reflected."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Testing user profile features",
+            "Ensuring data accuracy in user profiles"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not testing all profile functionalities",
+              "solution": "Thoroughly investigate every aspect of user profiles.",
+              "prevention_tip": "Maintain a checklist for comprehensive testing."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Test Profile Functionality - Strategies for thorough testing - https://www.youtube.com/watch?v=H-3QE20PBNY",
+              "Article: Testing Django User Profiles - Learn how to effectively test profiles - https://www.django-rest-framework.org/tutorial/3-testing/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Document any issues discovered during testing.",
+              "Communicate with users for feedback on profile experiences."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 15,
+            "badge": "Profile Tester"
+          }
+        }
+      ],
+      "daily_summary": "Conducted tests on user profile features in your weather app."
+    },
+    {
+      "day": 23,
+      "focus": "Enhance security measures",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D23-T1",
+          "title": "Implement security measures",
+          "task_type": "building",
+          "description": "Enhance the security of your weather app by implementing best practices for user data protection.",
+          "how_to_guide": "1. Use HTTPS for secure connections. 2. Implement CSRF protection. 3. Regularly update dependencies.",
+          "subtasks": [
+            {
+              "title": "Check for HTTPS setup",
+              "description": "Ensure your app is served over HTTPS.",
+              "steps": ["Check server configuration for SSL/TLS support"]
+            },
+            {
+              "title": "Add CSRF protection",
+              "description": "Ensure your app is protected against cross-site request forgery attacks.",
+              "steps": ["Use Django's built-in CSRF middleware"]
+            },
+            {
+              "title": "Update dependencies",
+              "description": "Ensure all dependencies are up to date for security fixes.",
+              "steps": ["Run 'pip list --outdated' to check packages"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Verify that your hosting provider supports HTTPS and obtain an SSL certificate.",
+            "Step 2: In settings.py, ensure that CSRF middleware is enabled.",
+            "Step 3: Use 'pip list --outdated' to identify outdated dependencies and update them.",
+            "Step 4: Regularly monitor security advisories for packages in use."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Enhancing application security",
+            "Implementing best practices for data protection"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Neglecting HTTPS setup",
+              "solution": "Ensure all web traffic is secured through HTTPS.",
+              "prevention_tip": "Create a security checklist for the app."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Web Application Security Best Practices - Essential guidelines - https://www.youtube.com/watch?v=0gRoinPhUe4",
+              "Article: Django Security Best Practices - Key elements of securing Django apps - https://djangodocs.org/en/stable/topics/security/",
+              "Tutorial: Securing Django Applications - In-depth security guide - https://www.digitalocean.com/community/tutorials/how-to-secure-your-django-applications"
+            ],
+            "documentation": [
+              "Official Docs: Security Best Practices - https://docs.djangoproject.com/en/stable/topics/security/",
+              "Guide: CSRF Protection - https://docs.djangoproject.com/en/stable/misc/design/#csrf"
+            ],
+            "helpful_tips": [
+              "Perform regular audits of security practices.",
+              "Stay informed on the latest security threats."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Security Specialist"
+          }
+        }
+      ],
+      "daily_summary": "Enhanced the security of your weather app by implementing best practices."
+    },
+    {
+      "day": 24,
+      "focus": "Conduct final testing",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D24-T1",
+          "title": "Perform final tests on your application",
+          "task_type": "practice",
+          "description": "Conduct comprehensive testing to finalize your weather app for release.",
+          "how_to_guide": "1. Review all app functionalities. 2. Ensure stability and usability. 3. Conduct user acceptance testing.",
+          "subtasks": [
+            {
+              "title": "Test all functionalities",
+              "description": "Use the app to check every feature.",
+              "steps": ["Interact with all functionalities and check for stability"]
+            },
+            {
+              "title": "Conduct user acceptance testing",
+              "description": "Gather feedback from a group of testers.",
+              "steps": ["Select a group and request detailed feedback"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your weather app and interact with all features thoroughly.",
+            "Step 2: Conduct a group testing session for user acceptance.",
+            "Step 3: Gather feedback on usability and functionality.",
+            "Step 4: Document findings and prepare for any last-minute adjustments."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Final testing techniques",
+            "User acceptance insights"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Skipping final tests",
+              "solution": "Ensure no aspects are overlooked before release.",
+              "prevention_tip": "Keep a testing checklist to avoid missing key features."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: User Acceptance Testing - Conducting effective UAT - https://www.youtube.com/watch?v=f2wYKWepP2c",
+              "Article: Final Testing Strategies - Insights into comprehensive testing - https://www.softwaretestinghelp.com/user-acceptance-testing-uat/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Engage diverse testers for varied feedback.",
+              "Prioritize findings for implementation."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Testing Champion"
+          }
+        }
+      ],
+      "daily_summary": "Conducted final tests and prepared your weather app for release."
+    },
+    {
+      "day": 25,
+      "focus": "Launch your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D25-T1",
+          "title": "Officially launch your app",
+          "task_type": "building",
+          "description": "Prepare for the launch of your weather app to the public and promote it.",
+          "how_to_guide": "1. Announce your app on social media. 2. Monitor initial user feedback. 3. Set up a support system for users.",
+          "subtasks": [
+            {
+              "title": "Prepare promotional materials",
+              "description": "Create graphics, descriptions, and any marketing content.",
+              "steps": ["Design promotional graphics for social media"]
+
+
+=== EXTRACTED JSON ===
+{
+  "project_overview": {
+    "title": "Weather App",
+    "description": "In this project, you'll build a weather application using Django that allows users to view weather forecasts for various locations. This project is valuable as it integrates API usage, database interactions, and user interface design skills.",
+    "estimated_duration": "30 days based on skill level and project complexity",
+    "recommended_tech_stack": ["Django", "HTML", "CSS", "JavaScript"],
+    "user_level": "complete beginner",
+    "prerequisites": ["Basic understanding of programming concepts", "Familiarity with HTML and CSS"]
+  },
+  "features": {
+    "core": [
+      "User can search for weather by location.",
+      "Display current and forecasted weather data.",
+      "Responsive design for mobile and desktop."
+    ],
+    "stretch": [
+      "Save favorite locations for quick access.",
+      "Display weather notifications."
+    ]
+  },
+  "overall_learning_materials": {
+    "foundational": [
+      "For complete beginners: Programming basics course - https://www.freecodecamp.org/learn/programming-with-javascript/",
+      "For beginners: HTML & CSS Basics - https://www.freecodecamp.org/learn/responsive-web-design/"
+    ],
+    "project_specific": [
+      "Free Course: Django for Beginners - A comprehensive guide to Django fundamentals - https://www.udemy.com/course/django-for-beginners/",
+      "Tutorial: Build a Weather App with Django - Step-by-step guide - https://realpython.com/python-django-weather-app/"
+    ],
+    "paid_comprehensive": [
+      "Udemy: Complete Python Developer in 2023 - A full-stack course - https://www.udemy.com/course/complete-python-developer-in-2023/",
+      "Course: Django 3 - Full Stack Websites with Python Web Development - https://www.udemy.com/course/django-full-stack-web-developer-bootcamp/"
+    ]
+  },
+  "daily_plan": [
+    {
+      "day": 1,
+      "focus": "Set up development environment",
+      "type": "learning",
+      "tasks": [
+        {
+          "id": "D1-T1",
+          "title": "Install Python and Django",
+          "task_type": "learning",
+          "description": "Learn how to install Python and Django on your local machine. This is essential for starting your project.",
+          "how_to_guide": "1. Download Python from https://www.python.org/downloads/. 2. Install Python and include it in your system PATH. 3. Install Django via pip by running 'pip install django'.",
+          "subtasks": [
+            {
+              "title": "Download Python",
+              "description": "Get the latest version of Python.",
+              "steps": ["Visit https://www.python.org/downloads/", "Select your operating system", "Download the installer"]
+            },
+            {
+              "title": "Install Django",
+              "description": "Set up Django using pip.",
+              "steps": ["Open your command line interface", "Run the command 'pip install django'", "Verify installation by typing 'django-admin --version'"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Go to https://www.python.org/downloads/ and download Python.",
+            "Step 2: Run the installer and follow the prompts to complete the installation.",
+            "Step 3: Open a terminal and type 'pip install django'.",
+            "Step 4: Confirm Django installation by executing 'django-admin --version'."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Installing software packages",
+            "Basic command line usage"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to add Python to PATH",
+              "solution": "Ensure the checkbox is selected during installation.",
+              "prevention_tip": "Always read installation instructions carefully."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Python Installation Guide - Follow this video for setup - https://www.youtube.com/watch?v=YYXdXT2l-IE",
+              "Article: How to Install Django - Step-by-step guide - https://www.digitalocean.com/community/tutorials/how-to-install-django-on-ubuntu-20-04",
+              "Tutorial: Getting Started with Python - An introduction - https://realpython.com/python-basics/"
+            ],
+            "documentation": [
+              "Official Docs: Django Installation - https://docs.djangoproject.com/en/stable/topics/install/",
+              "Guide: Python Installation - https://realpython.com/installing-python/"
+            ],
+            "helpful_tips": [
+              "Always use a virtual environment for Python projects.",
+              "Check your Python version with 'python --version'."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 20,
+            "coins": 5,
+            "badge": "Installation Guru"
+          }
+        }
+      ],
+      "daily_summary": "Successfully set up the development environment for your Django weather app."
+    },
+    {
+      "day": 2,
+      "focus": "Create a new Django project",
+      "type": "learning",
+      "tasks": [
+        {
+          "id": "D2-T1",
+          "title": "Start new Django project",
+          "task_type": "building",
+          "description": "Create a new Django project called 'WeatherApp' to hold your weather application.",
+          "how_to_guide": "1. Open your terminal. 2. Navigate to the desired directory. 3. Run the command 'django-admin startproject WeatherApp'. 4. Navigate into the project folder.",
+          "subtasks": [
+            {
+              "title": "Open Terminal",
+              "description": "Access your command line interface.",
+              "steps": ["Press Win + R, type 'cmd', hit Enter"]
+            },
+            {
+              "title": "Navigate to desired directory",
+              "description": "Change to the folder where you want to create the project.",
+              "steps": ["Use 'cd your-folder-name' to navigate"]
+            },
+            {
+              "title": "Create the project",
+              "description": "Use Django command to start the project.",
+              "steps": ["Run 'django-admin startproject WeatherApp'"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your terminal and ensure it is in the correct directory.",
+            "Step 2: Type 'django-admin startproject WeatherApp' and hit Enter.",
+            "Step 3: Navigate into the project folder: 'cd WeatherApp'.",
+            "Step 4: Ensure the project structure is created by listing files with 'ls' or 'dir'."
+          ],
+          "time_estimate": "1 hour",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Creating a new Django project",
+            "Navigating command line directories"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Incorrect directory navigation",
+              "solution": "Always check your current directory with 'pwd' or 'dir'.",
+              "prevention_tip": "Keep your project files organized in clearly named folders."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Project Creation - Simple guide to start a new project - https://www.youtube.com/watch?v=F5mRW0jo-U4",
+              "Article: Getting Started with Django - Setting up your first project - https://towardsdatascience.com/getting-started-with-django-15e2d1c9aba8",
+              "Tutorial: Django Official Getting Started - https://docs.djangoproject.com/en/stable/intro/tutorial01/"
+            ],
+            "documentation": [
+              "Official Docs: Starting a project - https://docs.djangoproject.com/en/stable/intro/tutorial01/#creating-a-project",
+              "Guide: Django Project Structure - https://docs.djangoproject.com/en/stable/ref/settings/#project-structure"
+            ],
+            "helpful_tips": [
+              "Organize your projects in a dedicated workspace.",
+              "Follow best practices for Django project naming."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 30,
+            "coins": 10,
+            "badge": "Project Creator"
+          }
+        }
+      ],
+      "daily_summary": "Created the initial Django project structure for the WeatherApp."
+    },
+    {
+      "day": 3,
+      "focus": "Run your Django project",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D3-T1",
+          "title": "Run the development server",
+          "task_type": "building",
+          "description": "Learn how to run the Django development server to see your project in action.",
+          "how_to_guide": "1. Make sure you are in your project directory. 2. Run 'python manage.py runserver'. 3. Open your web browser to 'http://127.0.0.1:8000/'.",
+          "subtasks": [
+            {
+              "title": "Navigate to project directory",
+              "description": "Ensure you are in the WeatherApp folder.",
+              "steps": ["Change directory with 'cd WeatherApp'"]
+            },
+            {
+              "title": "Run the server",
+              "description": "Start the Django development server.",
+              "steps": ["Run command 'python manage.py runserver'"]
+            },
+            {
+              "title": "Open the web browser",
+              "description": "Access the development server in your web browser.",
+              "steps": ["Type 'http://127.0.0.1:8000/' in the address bar"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Ensure you are in the WeatherApp directory by running 'cd WeatherApp'.",
+            "Step 2: Start the server by running 'python manage.py runserver'.",
+            "Step 3: Open your browser and go to 'http://127.0.0.1:8000/'.",
+            "Step 4: Check the console for any errors and fix them if needed."
+          ],
+          "time_estimate": "1 hour",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Running Django server",
+            "Accessing local web applications"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Server not starting due to errors",
+              "solution": "Check for typos in commands and ensure your environment is set up correctly.",
+              "prevention_tip": "Regularly test your server after major changes."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Run Django App - How to get your app running - https://www.youtube.com/watch?v=5fEJJdZtL9Y",
+              "Article: Django Development Server - Explanation and usage - https://www.digitalocean.com/community/tutorials/how-to-use-the-django-development-server",
+              "Tutorial: Official Django Tutorial on Running Server - https://docs.djangoproject.com/en/stable/intro/tutorial01/#running-the-development-server"
+            ],
+            "documentation": [
+              "Official Docs: Starting the Development Server - https://docs.djangoproject.com/en/stable/ref/django-admin/#runserver",
+              "Guide: Understanding Django's runserver command - https://docs.djangoproject.com/en/stable/topics/testing/overview/#running-the-development-server"
+            ],
+            "helpful_tips": [
+              "Use Ctrl+C to stop the server when done testing.",
+              "Always check the console for errors while running the server."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 25,
+            "coins": 8,
+            "badge": "Django Server Runner"
+          }
+        }
+      ],
+      "daily_summary": "Successfully ran the development server for your Django project."
+    },
+    {
+      "day": 4,
+      "focus": "Create a Django app for weather",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D4-T1",
+          "title": "Create the Weather app",
+          "task_type": "building",
+          "description": "Learn how to create an app within your Django project to manage weather data.",
+          "how_to_guide": "1. Ensure you are in the project directory. 2. Run 'python manage.py startapp weather'. 3. Create views and models for managing weather data.",
+          "subtasks": [
+            {
+              "title": "Run command to create app",
+              "description": "Use Django command to set up a new app.",
+              "steps": ["Run 'python manage.py startapp weather'"]
+            },
+            {
+              "title": "Add app to settings",
+              "description": "Include the new app in the project's settings.",
+              "steps": ["Open settings.py and add 'weather' to INSTALLED_APPS"]
+            },
+            {
+              "title": "Create models",
+              "description": "Define models to represent weather data.",
+              "steps": ["In weather/models.py, define a Weather model with fields for location and temperature"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: In your terminal, make sure you're in the WeatherApp directory.",
+            "Step 2: Run 'python manage.py startapp weather' to create the weather app.",
+            "Step 3: Open settings.py and add 'weather' to the INSTALLED_APPS list.",
+            "Step 4: In weather/models.py, create a model class for weather data."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Creating Django apps",
+            "Defining models"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to add app to INSTALLED_APPS",
+              "solution": "Always remember to include new apps in settings.py.",
+              "prevention_tip": "After creating an app, check settings immediately."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Apps - How to create a new app in a Django project - https://www.youtube.com/watch?v=IgC6z7T0dJ4",
+              "Article: Django Application Structure - Learn how Django apps work - https://medium.com/@andrewyay/understanding-django-app-structure-3bc8e1cbad43",
+              "Tutorial: Official Django Start a New App - https://docs.djangoproject.com/en/stable/intro/tutorial01/#creating-a-application"
+            ],
+            "documentation": [
+              "Official Docs: Django Apps Overview - https://docs.djangoproject.com/en/stable/intro/reusable-apps/",
+              "Guide: Models in Django - https://docs.djangoproject.com/en/stable/topics/db/models/"
+            ],
+            "helpful_tips": [
+              "Consistency is key; always structure apps similarly.",
+              "Test models with Django shell to ensure validity."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "App Creator"
+          }
+        }
+      ],
+      "daily_summary": "Created a new 'Weather' app within your Django project."
+    },
+    {
+      "day": 5,
+      "focus": "Define database models",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D5-T1",
+          "title": "Create Weather model",
+          "task_type": "building",
+          "description": "Define a model that represents weather information such as location and temperature.",
+          "how_to_guide": "1. Open weather/models.py. 2. Define a model class 'Weather'. 3. Run 'python manage.py makemigrations' to create migrations.",
+          "subtasks": [
+            {
+              "title": "Open models.py",
+              "description": "Navigate to the models file in your weather app.",
+              "steps": ["Navigate to weather/models.py"]
+            },
+            {
+              "title": "Define Weather model",
+              "description": "Create a class representing weather data.",
+              "steps": ["Write a Python class and define fields in models.py"]
+            },
+            {
+              "title": "Create migrations",
+              "description": "Prepare database migrations based on the Weather model.",
+              "steps": ["Run 'python manage.py makemigrations'"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open weather/models.py in your code editor.",
+            "Step 2: Define the Weather model with fields like location, temperature, etc.",
+            "Step 3: Save your changes.",
+            "Step 4: In the terminal, run 'python manage.py makemigrations' to prepare changes for the database."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Defining database models in Django",
+            "Creating migrations"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Incorrect field types in model",
+              "solution": "Refer to Django documentation for correct field types.",
+              "prevention_tip": "Test model fields in the Django shell."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Models Tutorial - Create models and migrations - https://www.youtube.com/watch?v=6WfeyyZ56i0",
+              "Article: Understanding Models in Django - Comprehensive guide - https://tutorial.djangogirls.org/en/models/",
+              "Tutorial: Django Model Migrations - Step-by-step guidance - https://realpython.com/django-migrations/"
+            ],
+            "documentation": [
+              "Official Docs: Defining Models - https://docs.djangoproject.com/en/stable/topics/db/models/",
+              "Guide: Django Migrations - https://docs.djangoproject.com/en/stable/topics/migrations/"
+            ],
+            "helpful_tips": [
+              "Use descriptive names for your fields.",
+              "Keep your models organized and well-commented."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Database Designer"
+          }
+        }
+      ],
+      "daily_summary": "Successfully defined a Weather model for managing weather data."
+    },
+    {
+      "day": 6,
+      "focus": "Apply database migrations",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D6-T1",
+          "title": "Migrate the database",
+          "task_type": "building",
+          "description": "Run the migration to update the database schema with the Weather model.",
+          "how_to_guide": "1. In the terminal, run 'python manage.py migrate' to apply migrations.",
+          "subtasks": [
+            {
+              "title": "Open terminal",
+              "description": "Access your command line.",
+              "steps": ["Open the terminal window"]
+            },
+            {
+              "title": "Run migrations",
+              "description": "Apply the migration to update your database.",
+              "steps": ["Enter 'python manage.py migrate' and press Enter"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your terminal.",
+            "Step 2: Ensure you are in the WeatherApp directory.",
+            "Step 3: Enter 'python manage.py migrate' in the terminal.",
+            "Step 4: Confirm that the migration was successful by checking for messages in the terminal."
+          ],
+          "time_estimate": "30 minutes",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Applying database migrations",
+            "Updating database schema"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to run 'makemigrations' before migrating",
+              "solution": "Always ensure migrations are created before applying.",
+              "prevention_tip": "Run migrations regularly as you update models."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Migrations Explained - Clear overview - https://www.youtube.com/watch?v=4Eiyh3uPbEE",
+              "Article: How Django Migrations Work - Detailed explanation - https://medium.com/@helen.rose/how-migrations-work-in-django-785b2ad56743",
+              "Tutorial: Django Migrations Documentation - https://docs.djangoproject.com/en/stable/topics/migrations/"
+            ],
+            "documentation": [
+              "Official Docs: Migrations - https://docs.djangoproject.com/en/stable/topics/migrations/#migration-operations",
+              "Guide: Working with Migrations - https://docs.djangoproject.com/en/stable/topics/migrations/#migration"
+            ],
+            "helpful_tips": [
+              "Keep track of schema changes in your project.",
+              "Regularly back up your database."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 25,
+            "coins": 8,
+            "badge": "Migration Master"
+          }
+        }
+      ],
+      "daily_summary": "Successfully migrated the database with the new Weather model."
+    },
+    {
+      "day": 7,
+      "focus": "Create views for weather data",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D7-T1",
+          "title": "Create views for displaying weather info",
+          "task_type": "building",
+          "description": "Develop views in Django to fetch and display weather data from the database.",
+          "how_to_guide": "1. Open weather/views.py. 2. Create a view function to fetch weather data. 3. Return a simple HTML response with weather info.",
+          "subtasks": [
+            {
+              "title": "Open views.py",
+              "description": "Navigate to the views file in the weather app.",
+              "steps": ["Access weather/views.py in your code editor"]
+            },
+            {
+              "title": "Define view function",
+              "description": "Write a function to query and display weather data.",
+              "steps": ["Define a function using HttpResponse for returning data"]
+            },
+            {
+              "title": "Return response",
+              "description": "Construct an HTML response for weather data.",
+              "steps": ["Use HttpResponse to return weather information as HTML"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open weather/views.py in your editor.",
+            "Step 2: Import necessary modules like HttpResponse.",
+            "Step 3: Create a view function named 'weather_info'.",
+            "Step 4: Return an HttpResponse with a simple HTML layout showing weather data."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Creating views in Django",
+            "Displaying data in responses"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not importing HttpResponse",
+              "solution": "Always ensure necessary imports at the start of your file.",
+              "prevention_tip": "Use comments in your code to remind yourself of dependencies."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Views Tutorial - Understand views - https://www.youtube.com/watch?v=YlcZ5gMCHgI",
+              "Article: Django Views Explained - Comprehensive guide to views - https://realpython.com/python-django-views/",
+              "Tutorial: Django Official Tutorial on Views - https://docs.djangoproject.com/en/stable/intro/tutorial03/"
+            ],
+            "documentation": [
+              "Official Docs: Views in Django - https://docs.djangoproject.com/en/stable/topics/http/views/",
+              "Guide: Creating Views - https://docs.djangoproject.com/en/stable/topics/http/shortcuts/#render"
+            ],
+            "helpful_tips": [
+              "Test your views using Django shell and the runserver command.",
+              "Always handle exceptions gracefully in your views."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "View Creator"
+          }
+        }
+      ],
+      "daily_summary": "Created views to display weather data in your Django app."
+    },
+    {
+      "day": 8,
+      "focus": "Connect views to URLs",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D8-T1",
+          "title": "Map URLs to views",
+          "task_type": "building",
+          "description": "Connect the views you created to specific URLs within your Django app.",
+          "how_to_guide": "1. Open weather/urls.py. 2. Define URL patterns and map them to views. 3. Include them in the project's main urls.py.",
+          "subtasks": [
+            {
+              "title": "Open urls.py",
+              "description": "Navigate to the urls.py file in your weather app.",
+              "steps": ["Access weather/urls.py in your editor"]
+            },
+            {
+              "title": "Define URL patterns",
+              "description": "Create URL patterns to map to the views you created.",
+              "steps": ["Use path() to create URL patterns"]
+            },
+            {
+              "title": "Include URLs in main urls.py",
+              "description": "Add include() for mapping the app URLs to the main project.",
+              "steps": ["Open WeatherApp/urls.py and include weather.urls"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open weather/urls.py.",
+            "Step 2: Import path and your view function.",
+            "Step 3: Use path() to define URL patterns.",
+            "Step 4: In the project's main urls.py, include the weather URLs."
+          ],
+          "time_estimate": "1.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Mapping URLs to views",
+            "URL configuration in Django"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to include app URLs in main urls.py",
+              "solution": "Check if you added include(weather.urls).",
+              "prevention_tip": "Use comments to remind yourself of configuration steps."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django URL Mapping - How to connect views to URLs - https://www.youtube.com/watch?v=WYM7G26Zt6I",
+              "Article: Django URL Dispatcher - Comprehensive guide - https://realpython.com/python-django-url-dispatcher/",
+              "Tutorial: Django Official Tutorial on URLs - https://docs.djangoproject.com/en/stable/topics/http/urls/"
+            ],
+            "documentation": [
+              "Official Docs: URL Dispatcher - https://docs.djangoproject.com/en/stable/topics/http/urls/",
+              "Guide: Including URLconfs - https://docs.djangoproject.com/en/stable/topics/http/urls/#including-urlconfs"
+            ],
+            "helpful_tips": [
+              "Keep your URLs organized and descriptive.",
+              "Test your URLs regularly with the development server."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 35,
+            "coins": 12,
+            "badge": "URL Mapper"
+          }
+        }
+      ],
+      "daily_summary": "Mapped URLs to your weather views in the Django application."
+    },
+    {
+      "day": 9,
+      "focus": "Fetch weather data from an API",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D9-T1",
+          "title": "Integrate weather API",
+          "task_type": "building",
+          "description": "Fetch weather data using a third-party API and display it on your weather app.",
+          "how_to_guide": "1. Choose a weather API (e.g., OpenWeatherMap). 2. Sign up for an API key. 3. Use requests library to integrate API.",
+          "subtasks": [
+            {
+              "title": "Choose an API",
+              "description": "Select a weather API service.",
+              "steps": ["Visit OpenWeatherMap and sign up for an API key"]
+            },
+            {
+              "title": "Install requests library",
+              "description": "Install the requests library for making API calls.",
+              "steps": ["Run 'pip install requests' in your terminal"]
+            },
+            {
+              "title": "Write API integration code",
+              "description": "Fetch data from the weather API in your view.",
+              "steps": ["Use requests.get() to call the API and handle response"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Go to OpenWeatherMap and register for a free API key.",
+            "Step 2: In your terminal, run 'pip install requests' to install the requests library.",
+            "Step 3: Import requests in your views.py.",
+            "Step 4: Write a function to fetch weather data using requests.get() and process the response."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Integrating APIs in Django",
+            "Working with JSON data"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not handling API errors",
+              "solution": "Always check for response status and handle exceptions.",
+              "prevention_tip": "Implement try/except blocks when making API requests."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: How to Use REST APIs in Django - Step-by-step guide - https://www.youtube.com/watch?v=0sUT8-_w6wA",
+              "Article: Django API Integration - Practical guide - https://www.digitalocean.com/community/tutorials/how-to-use-an-api-with-django",
+              "Tutorial: OpenWeatherMap API Documentation - https://openweathermap.org/api"
+            ],
+            "documentation": [
+              "Official Docs: Working with APIs in Django - https://docs.djangoproject.com/en/stable/topics/http/shortcuts/#http-response",
+              "Guide: Requests Library Documentation - https://docs.python-requests.org/en/latest/"
+            ],
+            "helpful_tips": [
+              "Make a test API call in the terminal to check if it works before implementing in code.",
+              "Store your API key securely and don’t hardcode it."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 45,
+            "coins": 15,
+            "badge": "API Integrator"
+          }
+        }
+      ],
+      "daily_summary": "Fetched weather data from a public API and integrated it into your app."
+    },
+    {
+      "day": 10,
+      "focus": "Display fetched weather data",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D10-T1",
+          "title": "Render weather data in HTML",
+          "task_type": "building",
+          "description": "Display the weather data retrieved from the API in your Django templates.",
+          "how_to_guide": "1. Create a template in the weather app. 2. In your view, pass the weather data to the template. 3. Use Django template syntax to render data.",
+          "subtasks": [
+            {
+              "title": "Create weather template",
+              "description": "Create an HTML file to display weather data.",
+              "steps": ["Create a template directory and an HTML file in it"]
+            },
+            {
+              "title": "Pass data to template",
+              "description": "Update your view to send weather data to the template.",
+              "steps": ["Use render() to pass context data"]
+            },
+            {
+              "title": "Render data in template",
+              "description": "Use Django template language to display data.",
+              "steps": ["Use {{ }} syntax to display data variables"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Create a folder named 'templates' in the weather app directory.",
+            "Step 2: Within 'templates', create 'weather.html'.",
+            "Step 3: Update the view function to include a render step passing the fetched data.",
+            "Step 4: In 'weather.html', use Django's template syntax to display the weather information."
+          ],
+          "time_estimate": "2.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Using Django templates",
+            "Rendering data in HTML"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to set up the template directory",
+              "solution": "Always verify the directory structure is correct.",
+              "prevention_tip": "Follow documentation closely for file structures."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Template Rendering - How to use templates effectively - https://www.youtube.com/watch?v=YIwFEmfHT8s",
+              "Article: Django Template Language - Thorough overview - https://realpython.com/django-template-language/",
+              "Tutorial: Django Templates Official Guide - https://docs.djangoproject.com/en/stable/topics/templates/"
+            ],
+            "documentation": [
+              "Official Docs: Using Templates - https://docs.djangoproject.com/en/stable/topics/templates/",
+              "Guide: Django Template Contexts - https://docs.djangoproject.com/en/stable/topics/templates/#template-context"
+            ],
+            "helpful_tips": [
+              "Use comments within templates for clarity.",
+              "Regularly check your templates against the Django documentation."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "HTML Renderer"
+          }
+        }
+      ],
+      "daily_summary": "Successfully displayed weather data in your Django templates."
+    },
+    {
+      "day": 11,
+      "focus": "Create forms for user input",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D11-T1",
+          "title": "Implement user search form",
+          "task_type": "building",
+          "description": "Create a form that allows users to input a location and fetch weather data.",
+          "how_to_guide": "1. Create a Django form class in forms.py. 2. Update your templates to include the form. 3. Handle form submissions in your views.",
+          "subtasks": [
+            {
+              "title": "Create forms.py",
+              "description": "Add a new form class within the weather app.",
+              "steps": ["Create a forms.py file in the weather app directory"]
+            },
+            {
+              "title": "Define the location form",
+              "description": "Use Django forms to create a location input field.",
+              "steps": ["Define a CharField for user input"]
+            },
+            {
+              "title": "Update templates with form",
+              "description": "Render the form in the HTML template.",
+              "steps": ["Use {{ form.as_p }} to display the form in weather.html"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Create a forms.py file in your weather app directory.",
+            "Step 2: In forms.py, create a class 'LocationForm' that inherits from forms.Form.",
+            "Step 3: Define a CharField for the location input.",
+            "Step 4: Update weather.html to include your form using {{ form.as_p }}."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Creating forms in Django",
+            "Handling user input"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to import forms module",
+              "solution": "Always check for necessary imports at the top of forms.py.",
+              "prevention_tip": "Keep a checklist of imports for common files."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Forms Tutorial - Understanding forms in Django - https://www.youtube.com/watch?v=8s0412T34k4",
+              "Article: Working with Django Forms - Practical tips and examples - https://realpython.com/django-forms/",
+              "Tutorial: Official Django Forms Guide - https://docs.djangoproject.com/en/stable/topics/forms/"
+            ],
+            "documentation": [
+              "Official Docs: Django Forms - https://docs.djangoproject.com/en/stable/topics/forms/",
+              "Guide: Form Fields in Django - https://docs.djangoproject.com/en/stable/topics/forms/#formfields"
+            ],
+            "helpful_tips": [
+              "Always test your forms to ensure they work as expected.",
+              "Use the Django shell to quickly test form behaviors."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Form Builder"
+          }
+        }
+      ],
+      "daily_summary": "Implemented a user input form for location search in your weather app."
+    },
+    {
+      "day": 12,
+      "focus": "Handle form submissions",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D12-T1",
+          "title": "Process user input from form",
+          "task_type": "building",
+          "description": "Update your view to process the form submission and fetch the corresponding weather data.",
+          "how_to_guide": "1. Check if the form is valid. 2. Fetch data based on user input. 3. Redirect or render the weather data.",
+          "subtasks": [
+            {
+              "title": "Check form validity",
+              "description": "Verify if the submitted form passes validation.",
+              "steps": ["Use 'if form.is_valid():' in your view"]
+            },
+            {
+              "title": "Fetch data with user input",
+              "description": "Use the input from the form to make the API call.",
+              "steps": ["Access cleaned data with 'form.cleaned_data['location']'"]
+            },
+            {
+              "title": "Render response",
+              "description": "Display the weather data based on the provided location.",
+              "steps": ["Return the response using render() with updated context"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your view function and check if the submitted form is valid.",
+            "Step 2: Use 'form.cleaned_data['location']' to access user input.",
+            "Step 3: Implement the API call using the user input.",
+            "Step 4: Render the template with the new weather data."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Processing forms in Django",
+            "Fetching data based on user input"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not checking for form validity",
+              "solution": "Always validate forms before using the data.",
+              "prevention_tip": "Regularly test your form processing logic."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django Form Processing - Handle submissions effectively - https://www.youtube.com/watch?v=Ud3Rx9wvY2E",
+              "Article: Processing Django Form Submissions - Insightful guide - https://realpython.com/django-forms/#processing-submissions",
+              "Tutorial: Handling Form Submission in Django - Step-by-step guide - https://docs.djangoproject.com/en/stable/topics/forms/#handling-submitted-data"
+            ],
+            "documentation": [
+              "Official Docs: Handling Form Data - https://docs.djangoproject.com/en/stable/topics/forms/#handling-submitted-data",
+              "Guide: Validating Forms - https://docs.djangoproject.com/en/stable/topics/forms/#validating-forms"
+            ],
+            "helpful_tips": [
+              "Always provide user feedback for successful form submissions.",
+              "Make use of Django messages framework for displaying notifications."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Input Processor"
+          }
+        }
+      ],
+      "daily_summary": "Successfully implemented form submission handling in your Django app."
+    },
+    {
+      "day": 13,
+      "focus": "Add styling to your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D13-T1",
+          "title": "Style the weather application",
+          "task_type": "building",
+          "description": "Enhance the appearance of your weather app using CSS.",
+          "how_to_guide": "1. Create a static folder for CSS. 2. Link your CSS file in the templates. 3. Apply styles to the HTML elements.",
+          "subtasks": [
+            {
+              "title": "Create static folder",
+              "description": "Set up a static directory for CSS files.",
+              "steps": ["Create a folder named 'static' in the weather app directory"]
+            },
+            {
+              "title": "Add CSS file",
+              "description": "Create a .css file for styling the app.",
+              "steps": ["In static, create 'styles.css' file"]
+            },
+            {
+              "title": "Link CSS in templates",
+              "description": "Include your CSS file in the HTML template.",
+              "steps": ["Use <link rel='stylesheet' href='{% static 'styles.css' %}'>" in weather.html"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Create a 'static' directory in the weather app directory.",
+            "Step 2: Inside 'static', create a file named 'styles.css'.",
+            "Step 3: Open your weather.html and link to your CSS by adding the <link> tag.",
+            "Step 4: Start adding styles to your CSS file."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Applying CSS styles",
+            "Linking static files in Django"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not linking the CSS file correctly",
+              "solution": "Ensure the static files are included and paths are correct.",
+              "prevention_tip": "Always test your styles in the browser after changes."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: CSS Styling for Beginners - Learn CSS basics - https://www.youtube.com/watch?v=yfoY53QXEnI",
+              "Article: Django Static Files Explained - Comprehensive overview - https://realpython.com/using-static-files-in-django/",
+              "Tutorial: Styling Django Templates - Step-by-step guide - https://www.digitalocean.com/community/tutorials/how-to-use-static-files-in-django"
+            ],
+            "documentation": [
+              "Official Docs: Django Static Files - https://docs.djangoproject.com/en/stable/howto/static-files/",
+              "Guide: Django CSS and Static Files - https://docs.djangoproject.com/en/stable/topics/staticfiles/"
+            ],
+            "helpful_tips": [
+              "Organize your styles in a structured manner.",
+              "Keep your CSS separate from HTML for cleaner code."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Styling Artist"
+          }
+        }
+      ],
+      "daily_summary": "Enhanced the styling of your weather app using CSS."
+    },
+    {
+      "day": 14,
+      "focus": "Test your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D14-T1",
+          "title": "Perform functional tests",
+          "task_type": "practice",
+          "description": "Test the weather app to ensure all functionalities work as intended.",
+          "how_to_guide": "1. Open the app and interact with all features. 2. Check for any errors in the console. 3. Ensure all data displays correctly.",
+          "subtasks": [
+            {
+              "title": "Test all features",
+              "description": "Interact with every feature in the app.",
+              "steps": ["Check the location input form", "Test the weather display"]
+            },
+            {
+              "title": "Check for errors",
+              "description": "Monitor console for any bugs or issues.",
+              "steps": ["Open browser console and look for error messages"]
+            },
+            {
+              "title": "Validate data display",
+              "description": "Verify if weather data is displaying correctly.",
+              "steps": ["Cross-check API data with displayed information"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your weather app in a browser.",
+            "Step 2: Use the location input form to search for different places.",
+            "Step 3: Watch for any errors in the console.",
+            "Step 4: Verify that the displayed weather matches the data from the API."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Functional testing",
+            "Debugging web applications"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Neglecting to test all features",
+              "solution": "Always test every functionality at least once.",
+              "prevention_tip": "Maintain a checklist of features to be tested."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Testing Django Applications - Effective strategies - https://www.youtube.com/watch?v=umg2XYaWcSQ",
+              "Article: Testing Strategies in Django - Tips for thorough testing - https://realpython.com/testing-in-django/",
+              "Tutorial: Django Test Framework - Official guide - https://docs.djangoproject.com/en/stable/topics/testing/"
+            ],
+            "documentation": [
+              "Official Docs: Testing in Django - https://docs.djangoproject.com/en/stable/topics/testing/overview/",
+              "Guide: Functional Tests - https://docs.djangoproject.com/en/stable/topics/testing/tools/#functional-tests"
+            ],
+            "helpful_tips": [
+              "Keep a bug tracking system to manage issues.",
+              "Perform both manual and automated testing."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 12,
+            "badge": "Testing Pro"
+          }
+        }
+      ],
+      "daily_summary": "Conducted functional tests on your weather app."
+    },
+    {
+      "day": 15,
+      "focus": "Deploy your weather app",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D15-T1",
+          "title": "Deploy the weather application",
+          "task_type": "building",
+          "description": "Learn how to deploy your weather app so others can access it online.",
+          "how_to_guide": "1. Choose a hosting platform (e.g., Heroku, PythonAnywhere). 2. Prepare your app for deployment. 3. Follow platform-specific deployment instructions.",
+          "subtasks": [
+            {
+              "title": "Choose a hosting platform",
+              "description": "Select a hosting platform to deploy your app.",
+              "steps": ["Research options like Heroku or PythonAnywhere"]
+            },
+            {
+              "title": "Prepare Django for deployment",
+              "description": "Make necessary configurations for production.",
+              "steps": ["Set ALLOWED_HOSTS in settings.py", "Collect static files using 'python manage.py collectstatic'"]
+            },
+            {
+              "title": "Follow deployment instructions",
+              "description": "Implement the deployment process as per chosen platform.",
+              "steps": ["Follow the specific platform guide for deployment steps"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Research platforms like Heroku or PythonAnywhere for deployment options.",
+            "Step 2: Open settings.py and set the ALLOWED_HOSTS variable to include your domain.",
+            "Step 3: Run 'python manage.py collectstatic' to gather static files.",
+            "Step 4: Follow the specific platform guide for deploying your Django app."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Deploying Django applications",
+            "Configuring apps for production"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Forgetting to set ALLOWED_HOSTS",
+              "solution": "Always check your settings before deployment.",
+              "prevention_tip": "Keep a checklist of deployment steps."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Deploying Django Applications - Step-by-step guide - https://www.youtube.com/watch?v=ar6UBtuQf1Y",
+              "Article: Deploy Django on Heroku - Detailed instructions - https://devcenter.heroku.com/articles/deploying-python",
+              "Tutorial: Official Django Deployment Checklist - https://docs.djangoproject.com/en/stable/howto/deployment/checklist/"
+            ],
+            "documentation": [
+              "Official Docs: Deploying Django - https://docs.djangoproject.com/en/stable/howto/deployment/"
+            ],
+            "helpful_tips": [
+              "Consider using Docker for easier deployments.",
+              "Always monitor your deployed app for errors and performance."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Deployment Expert"
+          }
+        }
+      ],
+      "daily_summary": "Successfully deployed your weather app for online access."
+    },
+    {
+      "day": 16,
+      "focus": "Receive user feedback",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D16-T1",
+          "title": "Collect feedback on your app",
+          "task_type": "practice",
+          "description": "Gather user feedback on the features and usability of your weather app.",
+          "how_to_guide": "1. Share your app with friends or peers. 2. Ask for specific feedback on features. 3. Use feedback to improve your app.",
+          "subtasks": [
+            {
+              "title": "Share your app",
+              "description": "Provide the app link to users.",
+              "steps": ["Send the link via email or social media"]
+            },
+            {
+              "title": "Request specific feedback",
+              "description": "Ask users for their thoughts on usability.",
+              "steps": ["Prepare a short survey or questions"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Deploy your app and share the link with users.",
+            "Step 2: Develop a short survey or list of questions focusing on usability.",
+            "Step 3: Analyze the feedback to identify areas for improvement.",
+            "Step 4: Plan adjustments based on the feedback received."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "easy",
+          "skills_learned": [
+            "Collecting user feedback",
+            "Analyzing feedback for improvements"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not asking for detailed feedback",
+              "solution": "Always prepare targeted questions to gather useful insights.",
+              "prevention_tip": "Send follow-up questions based on initial feedback."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Collecting User Feedback - Importance and methods - https://www.youtube.com/watch?v=GWSmVECorr0",
+              "Article: Best Practices for User Feedback - Strategies for effective feedback - https://www.nngroup.com/articles/user-feedback/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Focus on constructive criticism to make valuable improvements.",
+              "Maintain open communication with feedback providers."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 25,
+            "coins": 10,
+            "badge": "Feedback Collector"
+          }
+        }
+      ],
+      "daily_summary": "Collected user feedback to enhance your weather app."
+    },
+    {
+      "day": 17,
+      "focus": "Iterate based on feedback",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D17-T1",
+          "title": "Implement feedback improvements",
+          "task_type": "building",
+          "description": "Make adjustments to your app based on user feedback received.",
+          "how_to_guide": "1. Review collected feedback. 2. Identify common issues or suggestions. 3. Implement changes and test.",
+          "subtasks": [
+            {
+              "title": "Review feedback",
+              "description": "Go through the collected feedback.",
+              "steps": ["Identify areas that need improvement"]
+            },
+            {
+              "title": "List possible changes",
+              "description": "Create a list of adjustments to be made.",
+              "steps": ["Prioritize changes based on user input"]
+            },
+            {
+              "title": "Implement adjustments",
+              "description": "Make coding changes to the app.",
+              "steps": ["Edit code and redeploy app"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your feedback and categorize it.",
+            "Step 2: List the most mentioned issues and suggestions.",
+            "Step 3: Make changes to your codebase to address these points.",
+            "Step 4: Test the app after changes to ensure all functionalities still work."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Iterating on user feedback",
+            "Improving application functionality"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Ignoring valuable feedback",
+              "solution": "Always pay attention to user suggestions, even minor ones.",
+              "prevention_tip": "Keep a continual loop of feedback and improvement."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Iterative Design - Improving based on user feedback - https://www.youtube.com/watch?v=HWS6GUc3Oyg",
+              "Article: User Feedback Iteration - Process of iteration explained - https://www.smashingmagazine.com/2019/09/feedback-iteration-process/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Communicate improvements back to users, so they feel involved.",
+              "Continue to gather feedback even after initial changes."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 30,
+            "coins": 12,
+            "badge": "Improvement Implementer"
+          }
+        }
+      ],
+      "daily_summary": "Implemented improvements in your weather app based on user feedback."
+    },
+    {
+      "day": 18,
+      "focus": "Optimize your application",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D18-T1",
+          "title": "Optimize for performance",
+          "task_type": "building",
+          "description": "Enhance the performance and speed of your weather app.",
+          "how_to_guide": "1. Analyze your application for performance issues. 2. Use tools to test speed. 3. Adjust coding practices for efficiency.",
+          "subtasks": [
+            {
+              "title": "Use profiling tools",
+              "description": "Identify bottlenecks in your application.",
+              "steps": ["Install and run a profiling tool"]
+            },
+            {
+              "title": "Check database queries",
+              "description": "Analyze SQL queries for performance.",
+              "steps": ["Optimize queries for faster response"]
+            },
+            {
+              "title": "Implement caching",
+              "description": "Use caching solutions to speed up responses.",
+              "steps": ["Explore Django caching frameworks"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Identify performance bottlenecks using profiling tools.",
+            "Step 2: Review and optimize database queries for efficiency.",
+            "Step 3: Implement caching strategies for frequently requested data.",
+            "Step 4: Test application speed after optimizations."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Identifying performance issues",
+            "Optimizing applications for speed"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Neglecting to test after optimizations",
+              "solution": "Always test your application after making changes.",
+              "prevention_tip": "Document changes made for future reference."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Optimize Django Applications - Strategies and tips - https://www.youtube.com/watch?v=Fd8owvGKGKY",
+              "Article: Performance Optimization in Django - Comprehensive overview - https://realpython.com/django-performance-optimization/",
+              "Tutorial: Caching in Django - Step-by-step guide - https://docs.djangoproject.com/en/stable/topics/cache/"
+            ],
+            "documentation": [
+              "Official Docs: Caching in Django - https://docs.djangoproject.com/en/stable/topics/cache/",
+              "Guide: Django Performance Optimization - https://docs.djangoproject.com/en/stable/topics/performance/"
+            ],
+            "helpful_tips": [
+              "Keep monitoring your app's performance regularly.",
+              "Consider using a performance tracking tool for insights."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Optimization Expert"
+          }
+        }
+      ],
+      "daily_summary": "Optimized your weather app for better performance."
+    },
+    {
+      "day": 19,
+      "focus": "Create user accounts",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D19-T1",
+          "title": "Implement user authentication",
+          "task_type": "building",
+          "description": "Allow users to create accounts and log in to your weather app.",
+          "how_to_guide": "1. Use Django's built-in authentication system. 2. Create registration and login views. 3. Add templates for login and registration.",
+          "subtasks": [
+            {
+              "title": "Enable authentication in settings",
+              "description": "Ensure authentication settings are configured.",
+              "steps": ["Add 'django.contrib.auth' to INSTALLED_APPS"]
+            },
+            {
+              "title": "Create registration view",
+              "description": "Develop a view for user registration.",
+              "steps": ["Define a view to handle registration logic"]
+            },
+            {
+              "title": "Add login/logout views",
+              "description": "Implement Django's login and logout functionality.",
+              "steps": ["Use built-in views for authentication"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: In settings.py, ensure 'django.contrib.auth' is in INSTALLED_APPS.",
+            "Step 2: Create registration and login/logout views for user management.",
+            "Step 3: Add templates for user registration and login processes.",
+            "Step 4: Test authentication functionality to ensure proper user flow."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Implementing user authentication",
+            "Managing user sessions"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not configuring authentication settings",
+              "solution": "Double-check settings for authentication features.",
+              "prevention_tip": "Follow Django authentication documentation closely."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Django User Authentication - How to set it up - https://www.youtube.com/watch?v=moSIk0S5QH4",
+              "Article: Django User Authentication Explained - Tips and strategies - https://realpython.com/django-authentication-authorization/",
+              "Tutorial: Django Authentication Guide - Official guide - https://docs.djangoproject.com/en/stable/topics/auth/"
+            ],
+            "documentation": [
+              "Official Docs: User Authentication in Django - https://docs.djangoproject.com/en/stable/topics/auth/default/",
+              "Guide: Authentications Views - https://docs.djangoproject.com/en/stable/topics/auth/default/#module-django.contrib.auth.views"
+            ],
+            "helpful_tips": [
+              "Secure user passwords using hash functions.",
+              "Always enforce password complexity rules."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Authentication Specialist"
+          }
+        }
+      ],
+      "daily_summary": "Implemented user authentication for account management in your weather app."
+    },
+    {
+      "day": 20,
+      "focus": "Test authentication features",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D20-T1",
+          "title": "Conduct tests on authentication",
+          "task_type": "practice",
+          "description": "Test the user login and registration functionalities to ensure they work flawlessly.",
+          "how_to_guide": "1. Create new user accounts using registration. 2. Log in with existing accounts. 3. Verify logout functionality.",
+          "subtasks": [
+            {
+              "title": "Test user registration",
+              "description": "Create a new user account to evaluate registration.",
+              "steps": ["Complete the registration form and submit"]
+            },
+            {
+              "title": "Verify login process",
+              "description": "Log in as an existing user to ensure the process works.",
+              "steps": ["Enter valid credentials and access user dashboard"]
+            },
+            {
+              "title": "Check logout functionality",
+              "description": "Log out and verify session clearing.",
+              "steps": ["Click logout and confirm redirection to the home page"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open the registration page and submit a new user account.",
+            "Step 2: Log in using the newly created account.",
+            "Step 3: Navigate around the app to ensure functionality is intact.",
+            "Step 4: Use the logout button to end the session."
+          ],
+          "time_estimate": "2.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Testing user authentication features",
+            "Ensuring security and integrity of user sessions"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not using unique usernames/emails",
+              "solution": "Ensure user registration checks for duplicate entries.",
+              "prevention_tip": "Build user feedback for successful registration."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Test User Authentication - Strategies to test effectively - https://www.youtube.com/watch?v=CYI34cV7Q-A",
+              "Article: Best Practices Testing Authentication - Tips and insights - https://www.smashingmagazine.com/2020/03/testing-authentication/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Implement throttling to prevent brute force attacks.",
+              "Regularly review authentication security measures."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 15,
+            "badge": "Testing Pro"
+          }
+        }
+      ],
+      "daily_summary": "Conducted successful tests on the authentication features of your app."
+    },
+    {
+      "day": 21,
+      "focus": "Introduce user profiles",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D21-T1",
+          "title": "Create user profile functionality",
+          "task_type": "building",
+          "description": "Implement user profiles that allow users to view and edit their personal information.",
+          "how_to_guide": "1. Create a Profile model linked to user accounts. 2. Implement views and forms for profile management. 3. Update templates to display user profile.",
+          "subtasks": [
+            {
+              "title": "Create Profile model",
+              "description": "Define a model that links user data to profiles.",
+              "steps": ["In models.py, create a new Profile model"]
+            },
+            {
+              "title": "Update views for profile handling",
+              "description": "Develop views to manage profile data.",
+              "steps": ["Create view functions to display and update profiles"]
+            },
+            {
+              "title": "Create profile templates",
+              "description": "Render user profile information using templates.",
+              "steps": ["Design templates for user profiles"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open models.py and add a Profile model linked to Django's built-in User model.",
+            "Step 2: Define fields in the Profile model for user data.",
+            "Step 3: Implement views to show and edit profile information.",
+            "Step 4: Design templates to render profile data on the frontend."
+          ],
+          "time_estimate": "3.5 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Managing user profiles in Django",
+            "Implementing model relationships"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Incomplete Profile model design",
+              "solution": "Ensure all necessary user fields are included.",
+              "prevention_tip": "Review model design concepts before implementation."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: User Profiles in Django - Build user profiles step-by-step - https://www.youtube.com/watch?v=0G9KmIiGkBs",
+              "Article: Creating User Profiles in Django - Detailed guide - https://simpleisbetterthancomplex.com/tutorial/2016/08/23/how-to-create-a-user-profile-model.html",
+              "Tutorial: Django User Profile Example - Official and third-party guides - https://realpython.com/django-user-profile/"
+            ],
+            "documentation": [
+              "Official Docs: User Profiles and Relationships - https://docs.djangoproject.com/en/stable/topics/db/models/#relationships",
+              "Guide: Django Models Overview - https://docs.djangoproject.com/en/stable/topics/db/models/"
+            ],
+            "helpful_tips": [
+              "Test your profile management thoroughly to ensure user data integrity.",
+              "Keep user experience in mind when designing profile pages."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Profile Creator"
+          }
+        }
+      ],
+      "daily_summary": "Implemented user profile functionality in your weather app."
+    },
+    {
+      "day": 22,
+      "focus": "Test profile features",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D22-T1",
+          "title": "Conduct tests on user profiles",
+          "task_type": "practice",
+          "description": "Test the user profile functionality to ensure data is displaying and updating correctly.",
+          "how_to_guide": "1. Log in as a user. 2. Access the profile page. 3. Edit and save information.",
+          "subtasks": [
+            {
+              "title": "View profile data",
+              "description": "Check that the profile displays the correct information.",
+              "steps": ["Access the profile page as a logged-in user"]
+            },
+            {
+              "title": "Edit profile information",
+              "description": "Modify profile data and save changes.",
+              "steps": ["Make edits and submit the form"]
+            },
+            {
+              "title": "Verify changes",
+              "description": "Ensure that edited information updates successfully.",
+              "steps": ["Review the profile to confirm updates"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Log in to your app as a user.",
+            "Step 2: Navigate to the profile page and review displayed data.",
+            "Step 3: Edit information and save changes.",
+            "Step 4: Refresh the profile page to confirm that updates are reflected."
+          ],
+          "time_estimate": "2 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Testing user profile features",
+            "Ensuring data accuracy in user profiles"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Not testing all profile functionalities",
+              "solution": "Thoroughly investigate every aspect of user profiles.",
+              "prevention_tip": "Maintain a checklist for comprehensive testing."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Test Profile Functionality - Strategies for thorough testing - https://www.youtube.com/watch?v=H-3QE20PBNY",
+              "Article: Testing Django User Profiles - Learn how to effectively test profiles - https://www.django-rest-framework.org/tutorial/3-testing/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Document any issues discovered during testing.",
+              "Communicate with users for feedback on profile experiences."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 40,
+            "coins": 15,
+            "badge": "Profile Tester"
+          }
+        }
+      ],
+      "daily_summary": "Conducted tests on user profile features in your weather app."
+    },
+    {
+      "day": 23,
+      "focus": "Enhance security measures",
+      "type": "building",
+      "tasks": [
+        {
+          "id": "D23-T1",
+          "title": "Implement security measures",
+          "task_type": "building",
+          "description": "Enhance the security of your weather app by implementing best practices for user data protection.",
+          "how_to_guide": "1. Use HTTPS for secure connections. 2. Implement CSRF protection. 3. Regularly update dependencies.",
+          "subtasks": [
+            {
+              "title": "Check for HTTPS setup",
+              "description": "Ensure your app is served over HTTPS.",
+              "steps": ["Check server configuration for SSL/TLS support"]
+            },
+            {
+              "title": "Add CSRF protection",
+              "description": "Ensure your app is protected against cross-site request forgery attacks.",
+              "steps": ["Use Django's built-in CSRF middleware"]
+            },
+            {
+              "title": "Update dependencies",
+              "description": "Ensure all dependencies are up to date for security fixes.",
+              "steps": ["Run 'pip list --outdated' to check packages"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Verify that your hosting provider supports HTTPS and obtain an SSL certificate.",
+            "Step 2: In settings.py, ensure that CSRF middleware is enabled.",
+            "Step 3: Use 'pip list --outdated' to identify outdated dependencies and update them.",
+            "Step 4: Regularly monitor security advisories for packages in use."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Enhancing application security",
+            "Implementing best practices for data protection"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Neglecting HTTPS setup",
+              "solution": "Ensure all web traffic is secured through HTTPS.",
+              "prevention_tip": "Create a security checklist for the app."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: Web Application Security Best Practices - Essential guidelines - https://www.youtube.com/watch?v=0gRoinPhUe4",
+              "Article: Django Security Best Practices - Key elements of securing Django apps - https://djangodocs.org/en/stable/topics/security/",
+              "Tutorial: Securing Django Applications - In-depth security guide - https://www.digitalocean.com/community/tutorials/how-to-secure-your-django-applications"
+            ],
+            "documentation": [
+              "Official Docs: Security Best Practices - https://docs.djangoproject.com/en/stable/topics/security/",
+              "Guide: CSRF Protection - https://docs.djangoproject.com/en/stable/misc/design/#csrf"
+            ],
+            "helpful_tips": [
+              "Perform regular audits of security practices.",
+              "Stay informed on the latest security threats."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Security Specialist"
+          }
+        }
+      ],
+      "daily_summary": "Enhanced the security of your weather app by implementing best practices."
+    },
+    {
+      "day": 24,
+      "focus": "Conduct final testing",
+      "type": "practice",
+      "tasks": [
+        {
+          "id": "D24-T1",
+          "title": "Perform final tests on your application",
+          "task_type": "practice",
+          "description": "Conduct comprehensive testing to finalize your weather app for release.",
+          "how_to_guide": "1. Review all app functionalities. 2. Ensure stability and usability. 3. Conduct user acceptance testing.",
+          "subtasks": [
+            {
+              "title": "Test all functionalities",
+              "description": "Use the app to check every feature.",
+              "steps": ["Interact with all functionalities and check for stability"]
+            },
+            {
+              "title": "Conduct user acceptance testing",
+              "description": "Gather feedback from a group of testers.",
+              "steps": ["Select a group and request detailed feedback"]
+            }
+          ],
+          "detailed_steps": [
+            "Step 1: Open your weather app and interact with all features thoroughly.",
+            "Step 2: Conduct a group testing session for user acceptance.",
+            "Step 3: Gather feedback on usability and functionality.",
+            "Step 4: Document findings and prepare for any last-minute adjustments."
+          ],
+          "time_estimate": "3 hours",
+          "difficulty": "medium",
+          "skills_learned": [
+            "Final testing techniques",
+            "User acceptance insights"
+          ],
+          "common_mistakes": [
+            {
+              "mistake": "Skipping final tests",
+              "solution": "Ensure no aspects are overlooked before release.",
+              "prevention_tip": "Keep a testing checklist to avoid missing key features."
+            }
+          ],
+          "learning_materials": {
+            "free_resources": [
+              "YouTube: User Acceptance Testing - Conducting effective UAT - https://www.youtube.com/watch?v=f2wYKWepP2c",
+              "Article: Final Testing Strategies - Insights into comprehensive testing - https://www.softwaretestinghelp.com/user-acceptance-testing-uat/"
+            ],
+            "documentation": [],
+            "helpful_tips": [
+              "Engage diverse testers for varied feedback.",
+              "Prioritize findings for implementation."
+            ],
+            "source_code_examples": [],
+            "tip_links": []
+          },
+          "rewards": {
+            "xp": 50,
+            "coins": 20,
+            "badge": "Testing Champion"
+          }
+        }
+      ],
+      "daily_summary": "Conducted final tests and prepared your weather app for release."
+    }

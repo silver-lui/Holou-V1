@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Join Waitlist - Holou</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Orbitron:wght@700&amp;display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --background-rgb: 11, 12, 16;
+            --glow-purple-rgb: 123, 92, 255;
+            --glow-cyan-rgb: 56, 189, 248;
+        }
+        body {
+            background-color: #0b0c10;
+        }
+        .glow-particle-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+        }
+        .glow-particle {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(20px);
+            opacity: 0.1;
+        }
+        .glow-particle-1 {
+            width: 500px;
+            height: 500px;
+            top: -10%;
+            left: -15%;
+            background-color: rgba(var(--glow-purple-rgb), 0.5);
+        }
+        .glow-particle-2 {
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            right: -20%;
+            background-color: rgba(var(--glow-cyan-rgb), 0.5);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        purple: { 
+                          DEFAULT: "#7B5CFF",
+                          '500': '#7B5CFF'
+                        },
+                        cyan: {
+                          DEFAULT: "#38BDF8",
+                          '400': "#38BDF8"
+                        },
+                        background: "#0b0c10",
+                        "text-soft": "#E4E4E7",
+                        "text-muted": "#A1A1AA",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Orbitron", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'glow-purple': '0 0 25px rgba(123, 92, 255, 0.5)',
+                        'glow-cyan': '0 0 25px rgba(56, 189, 248, 0.5)',
+                    },
+                    borderColor: {
+                        'white-10': 'rgba(255, 255, 255, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background font-sans text-text-soft antialiased">
+    <div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
+        <div class="glow-particle-container">
+            <div class="glow-particle glow-particle-1"></div>
+            <div class="glow-particle glow-particle-2"></div>
+        </div>
+        
+        <div class="flex h-full grow flex-col">
+            <div class="flex flex-1 justify-center items-center py-12 px-4">
+                <div class="w-full max-w-md">
+                    <!-- Header -->
+                    <div class="text-center mb-8">
+                        <a href="{% url 'home' %}" class="inline-flex items-center gap-3 text-white mb-6">
+                            <div class="size-10">
+                                <img alt="Holou Logo" class="h-full w-full object-contain" src="{% static 'Holou-Logo.png' %}"/>
+                            </div>
+                            <h1 class="text-3xl font-bold font-display leading-tight tracking-tight text-text-soft">Holou</h1>
+                        </a>
+                        <h2 class="text-2xl sm:text-3xl font-bold font-display text-white mb-2">Join the Waitlist</h2>
+                        <p class="text-text-muted">Be among the first to experience Holou</p>
+                    </div>
+
+                    <!-- Success Message -->
+                    {% if success %}
+                    <div class="relative bg-background/80 backdrop-blur-lg border border-green-500/30 rounded-xl p-6 mb-6">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full bg-green-500/20">
+                                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-white mb-1">Thank You!</h3>
+                                <p class="text-text-muted">You've successfully joined our waitlist. We'll notify you at <strong class="text-white">{{ email }}</strong> when Holou is ready.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="{% url 'home' %}" class="inline-flex items-center justify-center rounded-lg h-11 px-6 bg-purple text-white text-base font-semibold transition-all hover:bg-purple/90 hover:shadow-glow-purple">
+                            Return to Home
+                        </a>
+                    </div>
+                    {% else %}
+                    
+                    <!-- Error Message -->
+                    {% if error %}
+                    <div class="relative bg-background/80 backdrop-blur-lg border border-red-500/30 rounded-xl p-4 mb-6">
+                        <div class="flex items-start gap-3">
+                            <div class="flex-shrink-0">
+                                <svg class="w-5 h-5 text-red-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-sm text-red-400">{{ error }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Registration Form -->
+                    <div class="relative bg-background/80 backdrop-blur-lg border border-white-10 rounded-xl p-6 sm:p-8">
+                        <form method="post" class="space-y-5">
+                            {% csrf_token %}
+                            
+                            <!-- Email (Required) -->
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-white mb-2">
+                                    Email Address <span class="text-red-400">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    required
+                                    value="{% if form_data.email %}{{ form_data.email }}{% endif %}"
+                                    class="w-full bg-black/40 border border-white/10 rounded-lg h-11 px-4 text-text-soft placeholder-text-muted focus:ring-2 focus:ring-purple focus:border-purple transition-all backdrop-blur-sm"
+                                    placeholder="your@email.com"
+                                />
+                            </div>
+
+                            <!-- First Name -->
+                            <div>
+                                <label for="first_name" class="block text-sm font-semibold text-white mb-2">
+                                    First Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="first_name" 
+                                    name="first_name"
+                                    value="{% if form_data.first_name %}{{ form_data.first_name }}{% endif %}"
+                                    class="w-full bg-black/40 border border-white/10 rounded-lg h-11 px-4 text-text-soft placeholder-text-muted focus:ring-2 focus:ring-purple focus:border-purple transition-all backdrop-blur-sm"
+                                    placeholder="John"
+                                />
+                            </div>
+
+                            <!-- Last Name -->
+                            <div>
+                                <label for="last_name" class="block text-sm font-semibold text-white mb-2">
+                                    Last Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="last_name" 
+                                    name="last_name"
+                                    value="{% if form_data.last_name %}{{ form_data.last_name }}{% endif %}"
+                                    class="w-full bg-black/40 border border-white/10 rounded-lg h-11 px-4 text-text-soft placeholder-text-muted focus:ring-2 focus:ring-purple focus:border-purple transition-all backdrop-blur-sm"
+                                    placeholder="Doe"
+                                />
+                            </div>
+
+                            <!-- Company Name -->
+                            <div>
+                                <label for="company_name" class="block text-sm font-semibold text-white mb-2">
+                                    Company Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="company_name" 
+                                    name="company_name"
+                                    value="{% if form_data.company_name %}{{ form_data.company_name }}{% endif %}"
+                                    class="w-full bg-black/40 border border-white/10 rounded-lg h-11 px-4 text-text-soft placeholder-text-muted focus:ring-2 focus:ring-purple focus:border-purple transition-all backdrop-blur-sm"
+                                    placeholder="Acme Inc."
+                                />
+                            </div>
+
+                            <!-- Job Title -->
+                            <div>
+                                <label for="job_title" class="block text-sm font-semibold text-white mb-2">
+                                    Job Title
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="job_title" 
+                                    name="job_title"
+                                    value="{% if form_data.job_title %}{{ form_data.job_title }}{% endif %}"
+                                    class="w-full bg-black/40 border border-white/10 rounded-lg h-11 px-4 text-text-soft placeholder-text-muted focus:ring-2 focus:ring-purple focus:border-purple transition-all backdrop-blur-sm"
+                                    placeholder="Software Developer"
+                                />
+                            </div>
+
+                            <!-- Additional Info -->
+                            <div>
+                                <label for="additional_info" class="block text-sm font-semibold text-white mb-2">
+                                    Additional Information
+                                </label>
+                                <textarea 
+                                    id="additional_info" 
+                                    name="additional_info"
+                                    rows="3"
+                                    class="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-text-soft placeholder-text-muted focus:ring-2 focus:ring-purple focus:border-purple transition-all backdrop-blur-sm resize-none"
+                                    placeholder="Tell us what you're looking forward to most about Holou..."
+                                >{% if form_data.additional_info %}{{ form_data.additional_info }}{% endif %}</textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button 
+                                type="submit" 
+                                class="w-full flex items-center justify-center rounded-lg h-11 px-6 bg-purple text-white text-base font-semibold transition-all hover:bg-purple/90 hover:shadow-glow-purple"
+                            >
+                                Join Waitlist
+                            </button>
+                        </form>
+
+                        <!-- Back to Home Link -->
+                        <div class="mt-6 text-center">
+                            <a href="{% url 'home' %}" class="text-sm text-text-muted hover:text-purple transition-colors">
+                                ← Back to Home
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

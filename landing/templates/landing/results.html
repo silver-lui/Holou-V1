@@ -1,0 +1,511 @@
+{% load static %}
+{% load resource_filters %}
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Your Learning Plan - Holou</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Orbitron:wght@700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --background-rgb: 11, 12, 16;
+            --glow-purple-rgb: 123, 92, 255;
+            --glow-cyan-rgb: 56, 189, 248;
+        }
+        body {
+            background-color: #0b0c10;
+        }
+        .glow-particle-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+        }
+        .glow-particle {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(20px);
+            opacity: 0.1;
+        }
+        .glow-particle-1 {
+            width: 500px;
+            height: 500px;
+            top: -10%;
+            left: -15%;
+            background-color: rgba(var(--glow-purple-rgb), 0.5);
+        }
+        .glow-particle-2 {
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            right: -20%;
+            background-color: rgba(var(--glow-cyan-rgb), 0.5);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        purple: { DEFAULT: "#7B5CFF", '500': '#7B5CFF' },
+                        cyan: { DEFAULT: "#38BDF8", '400': "#38BDF8" },
+                        background: "#0b0c10",
+                        "text-soft": "#E4E4E7",
+                        "text-muted": "#A1A1AA",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        display: ["Orbitron", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background font-sans text-text-soft antialiased">
+<div class="relative min-h-screen w-full flex flex-col overflow-x-hidden">
+<div class="glow-particle-container">
+<div class="glow-particle glow-particle-1"></div>
+<div class="glow-particle glow-particle-2"></div>
+</div>
+<div class="flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5">
+<div class="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-white/10 py-4 mb-8">
+<div class="flex items-center gap-3 text-white">
+<div class="size-8">
+<img alt="Holou Logo" class="h-full w-full object-contain" src="{% static 'Holou-Logo.png' %}"/>
+</div>
+<h2 class="text-2xl font-bold font-display leading-tight tracking-tight text-text-soft">Holou</h2>
+</div>
+<a href="/" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-purple text-white text-sm font-semibold transition-all hover:bg-purple/90">
+<span class="truncate">← Back Home</span>
+</a>
+</header>
+
+<main class="space-y-12">
+{% if pending_message %}
+<!-- Pending Approval Message -->
+<section class="relative bg-background/50 border border-yellow-500/30 rounded-2xl p-8 overflow-hidden">
+<div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-yellow-500/20 via-yellow-400/10 to-transparent -z-10"></div>
+<div class="text-center">
+<h1 class="text-4xl font-bold font-display mb-6 text-white">⏳ Plan Under Review</h1>
+<p class="text-text-muted text-lg mb-6">Your learning plan has been generated and is currently being reviewed by our team.</p>
+<p class="text-text-soft mb-4">We'll notify you once it's approved and ready to view!</p>
+<p class="text-xs text-text-muted">Plan ID: {{ plan_id }}</p>
+</div>
+</section>
+{% elif rejected_message %}
+<!-- Rejected Message -->
+<section class="relative bg-background/50 border border-red-500/30 rounded-2xl p-8 overflow-hidden">
+<div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-red-500/20 via-red-400/10 to-transparent -z-10"></div>
+<div class="text-center">
+<h1 class="text-4xl font-bold font-display mb-6 text-white">❌ Plan Not Available</h1>
+<p class="text-text-muted text-lg mb-6">This learning plan was not approved.</p>
+<p class="text-text-soft mb-4">Please try generating a new plan.</p>
+<a href="/" class="inline-block mt-4 px-6 py-3 bg-purple text-white rounded-lg hover:bg-purple/90 transition-all">Generate New Plan</a>
+</div>
+</section>
+{% elif error_message %}
+<!-- Error Message -->
+<section class="relative bg-background/50 border border-red-500/30 rounded-2xl p-8 overflow-hidden">
+<div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-red-500/20 via-red-400/10 to-transparent -z-10"></div>
+<div class="text-center">
+<h1 class="text-4xl font-bold font-display mb-6 text-white">⚠️ Error</h1>
+<p class="text-text-muted text-lg mb-6">{{ error_message }}</p>
+<a href="/" class="inline-block mt-4 px-6 py-3 bg-purple text-white rounded-lg hover:bg-purple/90 transition-all">Go Home</a>
+</div>
+</section>
+{% elif plan_data %}
+<!-- Project Overview -->
+<section class="relative bg-background/50 border border-white/10 rounded-2xl p-8 overflow-hidden">
+<div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-purple/20 via-cyan/10 to-transparent -z-10"></div>
+<h1 class="text-4xl font-bold font-display mb-6 text-white">{{ plan_data.project_overview.title }}</h1>
+<p class="text-text-muted text-lg mb-6">{{ plan_data.project_overview.description }}</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-black/20 rounded-lg p-4 border border-white/10">
+<p class="text-xs text-text-muted mb-1">Duration</p>
+<p class="text-white font-semibold">{{ plan_data.project_overview.estimated_duration }}</p>
+</div>
+<div class="bg-black/20 rounded-lg p-4 border border-white/10">
+<p class="text-xs text-text-muted mb-1">Skill Level</p>
+<p class="text-white font-semibold capitalize">{{ plan_data.project_overview.user_level }}</p>
+</div>
+<div class="bg-black/20 rounded-lg p-4 border border-white/10">
+<p class="text-xs text-text-muted mb-1">Tech Stack</p>
+<p class="text-white font-semibold text-sm">{{ plan_data.project_overview.recommended_tech_stack|join:", " }}</p>
+</div>
+</div>
+{% if plan_data.project_overview.prerequisites and plan_data.project_overview.prerequisites|length > 0 %}
+<div class="mt-4">
+<p class="text-xs text-text-muted mb-2">Prerequisites:</p>
+<ul class="flex flex-wrap gap-2">
+{% for prereq in plan_data.project_overview.prerequisites %}
+<li class="px-3 py-1 rounded-full text-xs bg-cyan/20 text-cyan border border-cyan/30">{{ prereq }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+</section>
+
+<!-- Features -->
+<section>
+<h2 class="text-3xl font-bold font-display mb-6 text-white">✨ Project Features</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-purple font-semibold mb-3">Core Features</h3>
+<ul class="space-y-2">
+{% for feature in plan_data.features.core %}
+<li class="text-text-soft flex items-start gap-2">
+<span class="text-purple mt-1">•</span>
+<span>{{ feature }}</span>
+</li>
+{% endfor %}
+</ul>
+</div>
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-cyan font-semibold mb-3">Stretch Goals</h3>
+<ul class="space-y-2">
+{% if plan_data.features.stretch %}
+{% for feature in plan_data.features.stretch %}
+<li class="text-text-soft flex items-start gap-2">
+<span class="text-cyan mt-1">•</span>
+<span>{{ feature }}</span>
+</li>
+{% endfor %}
+{% else %}
+<li class="text-text-muted italic">Additional features to explore after completing core features</li>
+{% endif %}
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Overall Learning Materials -->
+{% if plan_data.overall_learning_materials %}
+<section>
+<h2 class="text-3xl font-bold font-display mb-6 text-white">📚 Learning Resources</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+{% if plan_data.overall_learning_materials.foundational and plan_data.overall_learning_materials.foundational|length > 0 %}
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-purple font-semibold mb-3">Foundational Resources</h3>
+<ul class="space-y-2">
+{% for resource in plan_data.overall_learning_materials.foundational %}
+<li class="text-sm text-text-soft">
+{% if resource|extract_url %}
+<a href="/resource/?url={{ resource|extract_url|urlencode }}" target="_blank" class="hover:underline flex items-center gap-1 text-cyan">
+<span>{{ resource|extract_title|truncatewords:8 }}</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+{% else %}
+{{ resource|truncatewords:10 }}
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+{% if plan_data.overall_learning_materials.project_specific and plan_data.overall_learning_materials.project_specific|length > 0 %}
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-cyan font-semibold mb-3">Project-Specific Resources</h3>
+<ul class="space-y-2">
+{% for resource in plan_data.overall_learning_materials.project_specific %}
+<li class="text-sm text-text-soft">
+{% if resource|extract_url %}
+<a href="/resource/?url={{ resource|extract_url|urlencode }}" target="_blank" class="hover:underline flex items-center gap-1 text-cyan">
+<span>{{ resource|extract_title|truncatewords:8 }}</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+{% else %}
+{{ resource|truncatewords:10 }}
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+{% if plan_data.overall_learning_materials.paid_comprehensive and plan_data.overall_learning_materials.paid_comprehensive|length > 0 %}
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-yellow font-semibold mb-3">Premium Resources</h3>
+<ul class="space-y-2">
+{% for resource in plan_data.overall_learning_materials.paid_comprehensive %}
+<li class="text-sm text-text-soft">
+{% if resource|extract_url %}
+<a href="/resource/?url={{ resource|extract_url|urlencode }}" target="_blank" class="hover:underline flex items-center gap-1 text-yellow">
+<span>{{ resource|extract_title|truncatewords:8 }}</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+{% else %}
+{{ resource|truncatewords:10 }}
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+</div>
+</section>
+{% endif %}
+
+<!-- Daily Plan -->
+<section>
+<h2 class="text-3xl font-bold font-display mb-6 text-white">📅 Your Learning Journey</h2>
+<div class="space-y-8">
+{% if plan_data.daily_plan and plan_data.daily_plan|length > 0 %}
+{% for day_plan in plan_data.daily_plan %}
+<div class="relative bg-background/50 border border-white/10 rounded-2xl p-8 overflow-hidden">
+<div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-purple/10 to-transparent -z-10"></div>
+<div class="flex items-center gap-4 mb-6">
+<h3 class="text-2xl font-bold font-display text-white">Day {{ day_plan.day }}</h3>
+<span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple/20 text-purple border border-purple/30 capitalize">{{ day_plan.type }}</span>
+</div>
+<p class="text-text-muted mb-6">{{ day_plan.focus|default:"Learning and building" }}</p>
+<div class="space-y-4">
+{% if day_plan.tasks and day_plan.tasks|length > 0 %}
+{% for task in day_plan.tasks %}
+<div class="bg-black/20 rounded-xl p-6 border border-white/10">
+<div class="flex items-start justify-between mb-4">
+<div>
+<h4 class="text-white font-semibold text-lg mb-2">{{ task.title|default:"Task" }}</h4>
+<p class="text-text-muted text-sm mb-3">{{ task.description|default:"Complete this task" }}</p>
+{% if task.how_to_guide %}
+<p class="text-text-muted text-xs italic mb-2">💡 {{ task.how_to_guide }}</p>
+{% endif %}
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="px-2 py-1 rounded text-xs font-semibold bg-purple/20 text-purple capitalize">{{ task.difficulty|default:"medium" }}</span>
+<span class="text-xs text-text-muted">{{ task.time_estimate|default:"2-3 hours" }}</span>
+</div>
+</div>
+{% if task.subtasks and task.subtasks|length > 0 %}
+<div class="mb-4">
+<p class="text-xs text-text-muted mb-2 font-semibold">Subtasks:</p>
+<div class="space-y-2">
+{% for subtask in task.subtasks %}
+<div class="bg-black/30 rounded-lg p-3 border border-white/5">
+<p class="text-sm text-white font-medium mb-1">{{ subtask.title|default:"Subtask" }}</p>
+<p class="text-xs text-text-muted">{{ subtask.description|default:"Complete this subtask" }}</p>
+{% if subtask.steps and subtask.steps|length > 0 %}
+<ul class="mt-2 space-y-1">
+{% for step in subtask.steps %}
+<li class="text-xs text-text-muted flex items-start gap-2">
+<span class="text-purple mt-1">→</span>
+<span>{{ step|default:"Step" }}</span>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+{% if task.detailed_steps and task.detailed_steps|length > 0 %}
+<div class="mb-4">
+<p class="text-xs text-text-muted mb-2 font-semibold">Step-by-Step:</p>
+<ol class="space-y-2">
+{% for step in task.detailed_steps %}
+<li class="text-sm text-text-soft flex items-start gap-2">
+<span class="text-purple font-bold">{{ forloop.counter }}.</span>
+<span>{{ step|default:"Step" }}</span>
+</li>
+{% endfor %}
+</ol>
+</div>
+{% endif %}
+{% if task.skills_learned and task.skills_learned|length > 0 %}
+<div class="mb-4">
+<p class="text-xs text-text-muted mb-2 font-semibold">Skills You'll Learn:</p>
+<div class="flex flex-wrap gap-2">
+{% for skill in task.skills_learned %}
+<span class="px-2 py-1 rounded text-xs bg-purple/20 text-purple border border-purple/30">{{ skill }}</span>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+{% if task.common_mistakes and task.common_mistakes|length > 0 %}
+<div class="mb-4">
+<p class="text-xs text-text-muted mb-2 font-semibold">Common Mistakes & Solutions:</p>
+<div class="space-y-2">
+{% for mistake in task.common_mistakes %}
+<div class="bg-black/30 rounded-lg p-3 border border-white/5">
+<p class="text-xs text-red-300 font-medium mb-1">⚠️ {{ mistake.mistake|default:"Common mistake" }}</p>
+<p class="text-xs text-text-muted mb-1"><span class="text-green-300">✓ Solution:</span> {{ mistake.solution|default:"Solution" }}</p>
+{% if mistake.prevention_tip %}
+<p class="text-xs text-text-muted"><span class="text-cyan">💡 Tip:</span> {{ mistake.prevention_tip }}</p>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+{% if task.learning_materials %}
+<div class="mb-4">
+<p class="text-xs text-text-muted mb-2 font-semibold">Learning Resources:</p>
+{% if task.learning_materials.free_resources and task.learning_materials.free_resources|length > 0 %}
+<ul class="space-y-1 mb-2">
+{% for resource in task.learning_materials.free_resources %}
+<li class="text-xs text-cyan">
+{% if resource|extract_url %}
+<a href="/resource/?url={{ resource|extract_url|urlencode }}" target="_blank" class="hover:underline flex items-center gap-1">
+<span>{{ resource|extract_title|truncatewords:6 }}</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+{% else %}
+{{ resource|truncatewords:8 }}
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% if task.learning_materials.documentation and task.learning_materials.documentation|length > 0 %}
+<ul class="space-y-1">
+{% for doc in task.learning_materials.documentation %}
+<li class="text-xs text-cyan">
+{% if doc|extract_url %}
+<a href="/resource/?url={{ doc|extract_url|urlencode }}" target="_blank" class="hover:underline flex items-center gap-1">
+<span>{{ doc|extract_title|truncatewords:6 }}</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+{% else %}
+{{ doc|truncatewords:8 }}
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+{% endif %}
+<div class="flex items-center justify-between pt-4 border-t border-white/10">
+<div class="flex items-center gap-4 text-xs">
+<span class="text-purple">🎁 +{{ task.rewards.xp|default:20 }} XP</span>
+<span class="text-cyan">💰 +{{ task.rewards.coins|default:5 }} Coins</span>
+{% if task.rewards.badge %}
+<span class="text-yellow">🏆 {{ task.rewards.badge }}</span>
+{% endif %}
+</div>
+</div>
+</div>
+{% endfor %}
+{% else %}
+<div class="bg-black/20 rounded-xl p-6 border border-white/10">
+<p class="text-text-muted">No tasks for this day.</p>
+</div>
+{% endif %}
+</div>
+{% if day_plan.daily_summary %}
+<div class="mt-6 pt-6 border-t border-white/10">
+<p class="text-text-muted italic">{{ day_plan.daily_summary }}</p>
+</div>
+{% endif %}
+</div>
+{% endfor %}
+{% else %}
+<div class="bg-background/50 border border-white/10 rounded-2xl p-8 text-center">
+<p class="text-text-muted">Loading your learning plan...</p>
+</div>
+{% endif %}
+</div>
+</section>
+
+<!-- Milestones -->
+{% if plan_data.milestones %}
+<section>
+<h2 class="text-3xl font-bold font-display mb-6 text-white">🏆 Milestones</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+{% for milestone in plan_data.milestones %}
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-white font-semibold mb-2">{{ milestone.name }}</h3>
+<p class="text-text-muted text-sm mb-3">Day {{ milestone.day }}</p>
+<p class="text-text-soft mb-4">{{ milestone.description }}</p>
+<div class="flex items-center gap-4 text-xs">
+<span class="text-purple">+{{ milestone.reward.xp }} XP</span>
+<span class="text-cyan">+{{ milestone.reward.coins }} Coins</span>
+<span class="text-yellow">🏆 {{ milestone.reward.badge }}</span>
+</div>
+</div>
+{% endfor %}
+</div>
+</section>
+{% endif %}
+
+<!-- Rewards System -->
+{% if plan_data.rewards_system %}
+<section>
+<h2 class="text-3xl font-bold font-display mb-6 text-white">🎮 Rewards System</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+{% if plan_data.rewards_system.xp_levels %}
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-purple font-semibold mb-4">XP Levels</h3>
+<div class="space-y-2">
+{% for level_key, level_value in plan_data.rewards_system.xp_levels.items %}
+<div class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+<span class="text-sm text-text-soft">{{ level_key|title }}</span>
+<span class="text-xs text-text-muted">{{ level_value }}</span>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+{% if plan_data.rewards_system.shop_items and plan_data.rewards_system.shop_items|length > 0 %}
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<h3 class="text-cyan font-semibold mb-4">Shop Items</h3>
+<ul class="space-y-2">
+{% for item in plan_data.rewards_system.shop_items %}
+<li class="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+<span class="text-sm text-text-soft">{{ item.item|default:"Shop item" }}</span>
+<span class="text-xs text-cyan font-semibold">{{ item.cost|default:0 }} Coins</span>
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+</div>
+</section>
+{% endif %}
+
+<!-- Tips & Motivation -->
+{% if plan_data.tips_and_motivation and plan_data.tips_and_motivation|length > 0 %}
+<section>
+<h2 class="text-3xl font-bold font-display mb-6 text-white">💪 Tips & Motivation</h2>
+<div class="bg-background/50 border border-white/10 rounded-xl p-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+{% for tip in plan_data.tips_and_motivation %}
+<div class="bg-black/20 rounded-lg p-4 border border-white/10">
+<p class="text-text-soft text-sm">✨ {{ tip }}</p>
+</div>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endif %}
+{% else %}
+<!-- No Plan Data -->
+<section class="relative bg-background/50 border border-white/10 rounded-2xl p-8 overflow-hidden">
+<div class="text-center">
+<h1 class="text-4xl font-bold font-display mb-6 text-white">No Plan Found</h1>
+<p class="text-text-muted text-lg mb-6">We couldn't find your learning plan.</p>
+<a href="/" class="inline-block mt-4 px-6 py-3 bg-purple text-white rounded-lg hover:bg-purple/90 transition-all">Generate New Plan</a>
+</div>
+</section>
+{% endif %}
+</main>
+
+<footer class="border-t border-white/10 mt-16 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+<p class="text-text-muted text-sm">© Holou 2025</p>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+

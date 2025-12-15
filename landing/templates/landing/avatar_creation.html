@@ -1,0 +1,379 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Create Your Avatar - Holou</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --background-rgb: 11, 12, 16;
+            --glow-purple-rgb: 123, 92, 255;
+            --glow-cyan-rgb: 56, 189, 248;
+        }
+        body {
+            background-color: #0b0c10;
+        }
+        .animated-gradient-glow::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 40rem;
+            height: 40rem;
+            transform: translate(-50%, -50%);
+            background-image: radial-gradient(circle at center, rgba(var(--glow-purple-rgb), 0.2), transparent 70%);
+            z-index: -1;
+        }
+        .glow-particle-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+        }
+        .glow-particle {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(20px);
+            opacity: 0.1;
+        }
+        .glow-particle-1 {
+            width: 500px;
+            height: 500px;
+            top: -10%;
+            left: -15%;
+            background-color: rgba(var(--glow-purple-rgb), 0.5);
+        }
+        .glow-particle-2 {
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            right: -20%;
+            background-color: rgba(var(--glow-cyan-rgb), 0.5);
+        }
+        .glow-particle-3 {
+            width: 350px;
+            height: 350px;
+            bottom: 5%;
+            left: 30%;
+            background-color: rgba(var(--glow-purple-rgb), 0.4);
+        }
+        @keyframes pulse-light {
+            0%, 100% {
+                box-shadow: 0 0 8px theme('colors.purple.500 / 50%');
+            }
+            50% {
+                box-shadow: 0 0 20px theme('colors.purple.500 / 70%');
+            }
+        }
+        .pulse-badge {
+            animation: pulse-light 3s ease-in-out infinite;
+        }
+        .class-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .class-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(123, 92, 255, 0.3);
+        }
+        .class-card.selected {
+            border-color: #7B5CFF;
+            box-shadow: 0 0 20px rgba(123, 92, 255, 0.5);
+        }
+        .profession-option {
+            transition: all 0.2s ease;
+        }
+        .profession-option:hover {
+            background-color: rgba(123, 92, 255, 0.1);
+        }
+        .profession-option.selected {
+            background-color: rgba(123, 92, 255, 0.2);
+            border-color: #7B5CFF;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-white font-['Inter']">
+    <div class="relative min-h-screen overflow-hidden">
+        <!-- Background effects -->
+        <div class="glow-particle-container">
+            <div class="glow-particle glow-particle-1"></div>
+            <div class="glow-particle glow-particle-2"></div>
+            <div class="glow-particle glow-particle-3"></div>
+        </div>
+        
+        <!-- Header -->
+        <header class="relative z-10 p-6">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <a href="/" class="text-2xl font-['Orbitron'] font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    Holou
+                </a>
+                <nav class="flex gap-6">
+                    <a href="/" class="text-gray-400 hover:text-white transition">Home</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="relative z-10 max-w-6xl mx-auto px-6 py-12">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-['Orbitron'] font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    Create Your Avatar
+                </h1>
+                <p class="text-gray-400 text-lg">Choose your class, profession, and upload your image to generate a unique 2D vector avatar</p>
+            </div>
+
+            <!-- Avatar Creation Form -->
+            <div class="bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8 mb-8">
+                <form id="avatarForm" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <!-- Step 1: Character Class Selection -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold mb-4 text-purple-400">Step 1: Choose Your Class</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="classSelection">
+                            {% for class_name in classes %}
+                            <div class="class-card bg-gray-800/50 border-2 border-gray-700 rounded-xl p-4 text-center" 
+                                 data-class="{{ class_name }}">
+                                <div class="text-4xl mb-2">
+                                    {% if class_name == 'elf' %}🧝
+                                    {% elif class_name == 'demon' %}👹
+                                    {% elif class_name == 'human' %}👤
+                                    {% elif class_name == 'dwarf' %}🧔
+                                    {% elif class_name == 'orc' %}👺
+                                    {% elif class_name == 'fairy' %}🧚
+                                    {% elif class_name == 'wizard' %}🧙
+                                    {% elif class_name == 'warrior' %}⚔️
+                                    {% endif %}
+                                </div>
+                                <div class="font-semibold capitalize">{{ class_name }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" name="character_class" id="characterClass" required>
+                    </div>
+
+                    <!-- Step 2: Profession Selection -->
+                    <div class="mb-8" id="professionSection" style="display: none;">
+                        <h2 class="text-2xl font-semibold mb-4 text-cyan-400">Step 2: Choose Your Profession</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="professionSelection">
+                            <!-- Professions will be populated dynamically -->
+                        </div>
+                        <input type="hidden" name="profession" id="profession" required>
+                    </div>
+
+                    <!-- Step 3: Image Upload (Optional) -->
+                    <div class="mb-8" id="imageUploadSection" style="display: none;">
+                        <h2 class="text-2xl font-semibold mb-4 text-purple-400">Step 3: Upload Your Image (Optional)</h2>
+                        <div class="border-2 border-dashed border-gray-700 rounded-xl p-8 text-center hover:border-purple-500 transition">
+                            <input type="file" name="user_image" id="userImage" accept="image/*" class="hidden">
+                            <label for="userImage" class="cursor-pointer">
+                                <div class="text-4xl mb-4">📸</div>
+                                <div class="text-gray-400 mb-2">Click to upload your photo</div>
+                                <div class="text-sm text-gray-500">PNG, JPG, or GIF (optional)</div>
+                            </label>
+                            <div id="imagePreview" class="mt-4 hidden">
+                                <img id="previewImg" src="" alt="Preview" class="max-w-xs mx-auto rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <div class="text-center">
+                        <button type="submit" id="generateBtn" 
+                                class="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 
+                                       text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105 
+                                       disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                disabled>
+                            <span id="generateBtnText">Generate Avatar</span>
+                            <span id="generateBtnSpinner" class="hidden inline-block ml-2">
+                                <svg class="spinner w-5 h-5" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Generated Avatar Display -->
+            <div id="avatarResult" class="hidden bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-gray-800 p-8">
+                <h2 class="text-2xl font-semibold mb-6 text-center text-green-400">Your Avatar is Ready!</h2>
+                <div class="text-center">
+                    <img id="generatedAvatarImg" src="" alt="Generated Avatar" class="max-w-md mx-auto rounded-xl mb-6 shadow-2xl">
+                    <div class="flex gap-4 justify-center">
+                        <a id="downloadBtn" href="#" 
+                           class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 
+                                  text-white font-semibold py-3 px-8 rounded-xl transition-all transform hover:scale-105">
+                            Download Avatar
+                        </a>
+                        <button onclick="resetForm()" 
+                                class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-xl transition-all">
+                            Create Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden bg-red-900/50 border border-red-700 rounded-xl p-4 mb-8 text-red-200">
+                <p id="errorText"></p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const classProfessions = {{ class_professions_json|safe }};
+        let selectedClass = null;
+        let selectedProfession = null;
+
+        // Class selection
+        document.querySelectorAll('.class-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove previous selection
+                document.querySelectorAll('.class-card').forEach(c => c.classList.remove('selected'));
+                
+                // Select this class
+                this.classList.add('selected');
+                selectedClass = this.dataset.class;
+                document.getElementById('characterClass').value = selectedClass;
+                
+                // Show profession selection
+                showProfessions(selectedClass);
+                
+                // Show image upload section
+                document.getElementById('imageUploadSection').style.display = 'block';
+                
+                // Update generate button state
+                updateGenerateButton();
+            });
+        });
+
+        function showProfessions(className) {
+            const professionSection = document.getElementById('professionSection');
+            const professionSelection = document.getElementById('professionSelection');
+            
+            professionSelection.innerHTML = '';
+            
+            const professions = classProfessions[className] || [];
+            professions.forEach(profession => {
+                const option = document.createElement('div');
+                option.className = 'profession-option border-2 border-gray-700 rounded-lg p-4 text-center cursor-pointer';
+                option.textContent = profession;
+                option.dataset.profession = profession;
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.profession-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedProfession = profession;
+                    document.getElementById('profession').value = profession;
+                    updateGenerateButton();
+                });
+                professionSelection.appendChild(option);
+            });
+            
+            professionSection.style.display = 'block';
+        }
+
+        function updateGenerateButton() {
+            const generateBtn = document.getElementById('generateBtn');
+            if (selectedClass && selectedProfession) {
+                generateBtn.disabled = false;
+            } else {
+                generateBtn.disabled = true;
+            }
+        }
+
+        // Image preview
+        document.getElementById('userImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('previewImg').src = e.target.result;
+                    document.getElementById('imagePreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form submission
+        document.getElementById('avatarForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const generateBtn = document.getElementById('generateBtn');
+            const generateBtnText = document.getElementById('generateBtnText');
+            const generateBtnSpinner = document.getElementById('generateBtnSpinner');
+            const errorMessage = document.getElementById('errorMessage');
+            const avatarResult = document.getElementById('avatarResult');
+            
+            // Show loading state
+            generateBtn.disabled = true;
+            generateBtnText.textContent = 'Generating...';
+            generateBtnSpinner.classList.remove('hidden');
+            errorMessage.classList.add('hidden');
+            avatarResult.classList.add('hidden');
+            
+            try {
+                const response = await fetch('/avatar/generate/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    // Show generated avatar
+                    document.getElementById('generatedAvatarImg').src = data.avatar_url;
+                    document.getElementById('downloadBtn').href = `/avatar/download/${data.avatar_id}/`;
+                    avatarResult.classList.remove('hidden');
+                    
+                    // Scroll to result
+                    avatarResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    // Show error
+                    document.getElementById('errorText').textContent = data.error || 'An error occurred';
+                    errorMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                document.getElementById('errorText').textContent = 'Network error: ' + error.message;
+                errorMessage.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                generateBtn.disabled = false;
+                generateBtnText.textContent = 'Generate Avatar';
+                generateBtnSpinner.classList.add('hidden');
+            }
+        });
+
+        function resetForm() {
+            document.getElementById('avatarForm').reset();
+            document.querySelectorAll('.class-card').forEach(c => c.classList.remove('selected'));
+            document.querySelectorAll('.profession-option').forEach(o => o.classList.remove('selected'));
+            document.getElementById('professionSection').style.display = 'none';
+            document.getElementById('imageUploadSection').style.display = 'none';
+            document.getElementById('imagePreview').classList.add('hidden');
+            document.getElementById('avatarResult').classList.add('hidden');
+            document.getElementById('errorMessage').classList.add('hidden');
+            selectedClass = null;
+            selectedProfession = null;
+            updateGenerateButton();
+        }
+
+    </script>
+</body>
+</html>

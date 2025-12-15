@@ -1,0 +1,6 @@
+Django>=4.2.0
+openai>=1.0.0
+agents>=0.1.0
+python-dotenv
+requests>=2.31.0
+Pillow>=10.0.0
